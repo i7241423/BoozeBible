@@ -1,0 +1,37 @@
+{
+  "pubs": [
+    {
+      "lat": 50.723028,
+      "lng": -1.864980,
+      "name": "The Old Fire Station",
+      "sub": "Student Nightclub..",
+        "desc": "Nightspot in old fire station for eclectic live music and club nights, plus student union events.",
+        "addr": "36 Holdenhurst Rd \nBournemouth \nBH8 8AD"
+    },
+    {
+      "lat": 50.723191,
+      "lng": -1.864725,
+      "name": "Inferno",
+      "sub": "Split level bar..",
+        "desc": "Split-level bar with stripped flooring, sofas, a pool table and a beer garden plus diner-style fare.",
+        "addr": "38 Holdenhurst Rd \nBournemouth \nBH8 8AD"
+    },
+    {
+      "lat": 50.722906,
+      "lng": -1.865154,
+      "name": "Bomo Cafe Bar",
+      "sub": "Rustic orangery..",
+        "desc": "Bomo Cafe Bar & Bunker set in a relaxed, rustic orangery style cafe bar & terrace situated over 3 floors at this cuturally historic building",
+        "addr": "26 Holdenhurst Road \nBournemouth \nBH8 8AD"
+    },
+    {
+      "lat": 50.722441,
+      "lng": -1.865723,
+      "name": "The Christopher Creeke",
+      "sub": "Weathersoons bar..",
+        "desc": "A modern Wetherspoon's pub with basic decor, dark patterned carpets, real ales, ciders and pub grub.",
+        "addr": "2 Holdenhurst Road \nBournemouth \nBH8 8AD"
+    }
+  ]
+
+}
