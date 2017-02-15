@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         mapView.setUserTrackingMode(.follow, animated: true)
         
         
-        Alamofire.request("https://raw.githubusercontent.com/i7241423/BoozeBible/master/pubs.json").response { [unowned self] response in
+        Alamofire.request("https://raw.githubusercontent.com/i7241423/BoozeBible/master/pubs.json?token=AV3v1fD_p4K3LiHL7zPS6_hb7C_lgvjxks5YrYRewA%3D%3D").response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
