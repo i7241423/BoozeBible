@@ -17,6 +17,22 @@
         "addr": "38 Holdenhurst Rd \nBournemouth \nBH8 8AD"
     },
     {
+      "lat": 50.726891,
+      "lng": -1.861190,
+      "name": "Sound Circus",
+      "sub": "Club with heavy rock..",
+        "desc": "Club with heavy rock leanings, popular with students for its loud music and drinks specials.",
+        "addr": "140-142 Holdenhurst Rd \nBournemouth \nBH8 8AS"
+    },
+    {
+      "lat": 50.722761,
+      "lng": -1.865801,
+      "name": "The Anvil",
+      "sub": "New Bournemouth hub for all things rock..",
+        "desc": "The Anvil include an extensive rock jukebox, live gigs, a huge collection of beers, ciders and spirits, rock n roll decor",
+        "addr": "140-142 Holdenhurst Rd \nBournemouth \nBH8 8AS"
+    }, 
+   {
       "lat": 50.722906,
       "lng": -1.865154,
       "name": "Bomo Cafe Bar",
