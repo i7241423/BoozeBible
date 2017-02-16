@@ -30,7 +30,7 @@
       "name": "The Anvil",
       "sub": "New Bournemouth hub for all things rock..",
         "desc": "The Anvil include an extensive rock jukebox, live gigs, a huge collection of beers, ciders and spirits, rock n roll decor",
-        "addr": "140-142 Holdenhurst Rd \nBournemouth \nBH8 8AS"
+        "addr": "15 Holdenhurst Rd \nBournemouth \nBH8 8AD"
     }, 
    {
       "lat": 50.722906,
@@ -48,6 +48,31 @@
         "desc": "A modern Wetherspoon's pub with basic decor, dark patterned carpets, real ales, ciders and pub grub.",
         "addr": "2 Holdenhurst Road \nBournemouth \nBH8 8AD"
     }
+      {
+      "lat": 50.722056,
+      "lng": -1.867187,
+      "name": "O'Neill's",
+      "sub": "Irish influenced bar..",
+        "desc": "Relaxed chain pub with big-screen sport, live music and Irish-influenced food and drink menus",
+        "addr": "231 Old Christchurch Rd \nBournemouth \nBH1 1JZ"
+    }
+    {
+      "lat": 50.722372,
+      "lng": -1.868303,
+      "name": "George Tapps",
+      "sub": "Lively sports bar..",
+        "desc": "Lively bar with food and drink deals, showing live sport on plasma screens, plus sofas and terrace.",
+        "addr": "217 Old Christchurch Rd \nBournemouth \nBH1 1JZ"
+    }
+      {
+      "lat": 50.722316,
+      "lng": -1.868201,
+      "name": "Sharkeys Sports Bar Bournemouth",
+      "sub": "Lively sports bar..",
+        "desc": "Cavernous bar with 10 American pool tables, 10 HD screens for sports events and a burger menu.",
+        "addr": "215a Old Christchurch Rd \nBournemouth \nBH1 1JZ"
+    }
+      
   ]
 
 }
