@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="npl-Or-d53">
+            <objects>
+                <navigationController id="xrE-Nx-Tec" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KxQ-NQ-L8m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="q42-0S-0gN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="svW-Du-4Np" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="317"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -73,7 +89,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TxS-dO-oLj"/>
+
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="AXN-N3-VL7"/>
+
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Qh9-kc-Fch"/>
+
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Qh9-kc-Fch"/>
                         <segue destination="CGC-MZ-Lqa" kind="relationship" relationship="viewControllers" id="2kz-rl-isC"/>
                     </connections>
                 </tabBarController>
@@ -100,4 +123,7 @@
             <point key="canvasLocation" x="2673" y="744"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qh9-kc-Fch"/>
+    </inferredMetricsTieBreakers>
 </document>
