@@ -71,7 +71,48 @@
       "sub": "Lively sports bar..",
         "desc": "Cavernous bar with 10 American pool tables, 10 HD screens for sports events and a burger menu.",
         "addr": "215a Old Christchurch Rd \nBournemouth \nBH1 1JZ"
+    },
+      {
+      "lat": 50.723307,
+      "lng": -1.866889,
+      "name": "Downe's Winebar and Restaurant",
+      "sub": "Wine Bar..",
+        "desc": "A warm welcoming friendly Wine bar, where everybody knows your name. Great selection of different wines from around the world",
+        "addr": "19 Lansdowne Rd \nBournemouth \nBH1 1RZ"
+    },
+      {
+      "lat": 50.722193,
+      "lng": -1.869716,
+      "name": "Le Chic",
+      "sub": "Lounge bar and disco..",
+        "desc": "Neon-lit lounge bar and nightclub with booth seating, hosting disco and house music DJ nights",
+        "addr": "224-226 Old Christchurch Rd \nBournemouth \nBH1 1PE"
+    },
+      {
+      "lat": 50.722210,
+      "lng": -1.870499,
+      "name": "Revolution",
+      "sub": "Nightly happy hours..",
+        "desc": "Individually styled chain bar with a global menu of comfort-food classics and nightly happy hours.",
+        "addr": "163-167 Old Christchurch Rd \nBournemouth \nBH1 1JU"
+    },
+      {
+      "lat": 50.722069,
+      "lng": -1.872073,
+      "name": "Bar Republiq",
+      "sub": "VIP boutique club..",
+        "desc": "We are a secret VIP boutique club situated in the heart of Bournemouth. Creating a unique concept from the highlife of Manhattan",
+        "addr": "176 Old Christchurch Rd /nBournemouth /nBH1 1NU"
+    },
+      {
+      "lat": 50.722108,
+      "lng": -1.872188,
+      "name": "The Camel Bar",
+      "sub": "Shisha bar..",
+        "desc": "The CAMEL BAR provides a place to listen to chilled out music and smoke flavoured tobacco.",
+        "addr": "174 Old Christchurch Rd /nBournemouth /nBH1 1NU"
     }
+      
       
   ]
 
