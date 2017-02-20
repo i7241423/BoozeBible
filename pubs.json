@@ -102,7 +102,7 @@
       "name": "Bar Republiq",
       "sub": "VIP boutique club..",
         "desc": "We are a secret VIP boutique club situated in the heart of Bournemouth. Creating a unique concept from the highlife of Manhattan",
-        "addr": "176 Old Christchurch Rd /nBournemouth /nBH1 1NU"
+        "addr": "176 Old Christchurch Rd \nBournemouth \nBH1 1NU"
     },
       {
       "lat": 50.722108,
@@ -110,10 +110,27 @@
       "name": "The Camel Bar",
       "sub": "Shisha bar..",
         "desc": "The CAMEL BAR provides a place to listen to chilled out music and smoke flavoured tobacco.",
-        "addr": "174 Old Christchurch Rd /nBournemouth /nBH1 1NU"
+        "addr": "174 Old Christchurch Rd \nBournemouth \nBH1 1NU"
+    },
+      {
+      "lat": 50.722224,
+      "lng": -1.872805,
+      "name": "Walkabout",
+      "sub": "Australian chain..",
+        "desc": "Australian chain bar with a straightforward menu, themed party nights and live big-screen TV sport.",
+        "addr": "156-164 Old Christchurch Rd \nBournemouth \nBH1 1NL"
+    }
+      ,
+      {
+      "lat": 50.721979,
+      "lng": -1.873801,
+      "name": "Cameo",
+      "sub": "Buzzing club..",
+        "desc": "Large, opulent nightspot offering various club rooms, VIP and party booths, stag and hen packages.",
+        "addr": "Fir Vale Rd \nBournemouth \nBH1 2JA"
     }
       
-      
   ]
+
 
 }
