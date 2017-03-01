@@ -21,24 +21,39 @@ class ViewController: UIViewController {
         mapView.delegate = self
         mapView.setUserTrackingMode(.follow, animated: true)
         
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "ContentType": "application/json"
+        ]
         
-        Alamofire.request("https://raw.githubusercontent.com/i7241423/BoozeBible/master/pubs.json?token=AV3v1T-hMLfiIZrw3X37tJGVga76lXeHks5YsCYGwA%3D%3D").response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/venues/index", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
             let json = JSON(data: data)
             
             print(json)
-            for pubJSON in json["pubs"].arrayValue {
-                
-                let pub = Pub(json: pubJSON)
-                self.pubs.append(pub)
-                
-                let annotation = PubAnnotation(pub: pub)
-                self.mapView.addAnnotation(annotation)
-            }
+            
             
         }
+        
+//        Alamofire.request("http://46.101.42.98/venues/index.json").response { [unowned self] response in
+//            URLCache.shared.removeAllCachedResponses()
+//            guard let data = response.data else { return }
+//            
+//            let json = JSON(data: data)
+//            
+//            print(json)
+//            for pubJSON in json["pubs"].arrayValue {
+//                
+//                let pub = Pub(json: pubJSON)
+//                self.pubs.append(pub)
+//                
+//                let annotation = PubAnnotation(pub: pub)
+//                self.mapView.addAnnotation(annotation)
+//            }
+//            
+//        }
         
     }
     
@@ -105,6 +120,8 @@ extension ViewController: MKMapViewDelegate {
         //    present(ac, animated: true)
         
     }
+    
+    
     
 }
 
