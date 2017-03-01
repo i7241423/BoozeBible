@@ -13,13 +13,13 @@ class CategoryController: UIViewController  {
     
     var pickerSource: [String]!
     
-    var prices = ["£1","£2","£3"]
-    var speciality = ["jon", "sam", "ash"]
-    var ambiance = ["trad", "rad", "flad"]
-    var food = ["no", "yes", "snacks"]
-    var beerGarden = ["no", "yes"]
-    var activities = ["darts", "snooker", "ping-pong" ]
-    var music = ["rock", "pop", "rap"]
+    var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
+    var speciality = ["None", "Tequila", "Gin","Rum", "Whisky", "Vodka","Ale's", "Brandy", "Wine","Cocktails"]
+    var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
+    var food = ["No", "Yes", "Snacks"]
+    var beerGarden = ["No", "Yes"]
+    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights" ]
+    var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,6 @@ class CategoryController: UIViewController  {
         tableView.dataSource = self
         
     }
-
-
 }
 
 extension CategoryController: UITableViewDataSource, UITableViewDelegate {
@@ -63,9 +61,7 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         } else {
             pickerSource = music
         }
-
-
-        
+    
         pickerView.reloadAllComponents()
     }
     
