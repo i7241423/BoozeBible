@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SN-Qb-z8N">
-                                <rect key="frame" x="211" y="386" width="46" height="30"/>
+                                <rect key="frame" x="16" y="570" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -110,31 +110,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-9U-Pre">
+                                <rect key="frame" x="16" y="263" width="343" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="0DY-X2-Wp9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-1L-bFy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="143" id="ye0-rX-o3F"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-9U-Pre">
-                                <rect key="frame" x="16" y="263" width="343" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCM-Ae-Lyz">
+                                <rect key="frame" x="16" y="346" width="343" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.95857007579999998" green="0.18523361939999999" blue="0.79870801006598635" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dWM-9U-Pre" firstAttribute="top" secondItem="ret-z1-HiZ" secondAttribute="bottom" constant="8" id="B9M-nV-tiz"/>
                             <constraint firstItem="6gN-1L-bFy" firstAttribute="leading" secondItem="w1o-tR-DIe" secondAttribute="leading" id="CTP-k0-MmQ"/>
+                            <constraint firstItem="dWM-9U-Pre" firstAttribute="leading" secondItem="ret-z1-HiZ" secondAttribute="leading" id="Z05-3y-jrw"/>
                             <constraint firstItem="ret-z1-HiZ" firstAttribute="top" secondItem="6gN-1L-bFy" secondAttribute="bottom" constant="8" id="dAk-AB-Y9Y"/>
                             <constraint firstAttribute="trailing" secondItem="6gN-1L-bFy" secondAttribute="trailing" id="dmy-ce-EGC"/>
                             <constraint firstItem="6gN-1L-bFy" firstAttribute="top" secondItem="hVA-wh-Kwa" secondAttribute="bottom" id="fmL-jA-Ma3"/>
                             <constraint firstItem="ret-z1-HiZ" firstAttribute="leading" secondItem="w1o-tR-DIe" secondAttribute="leadingMargin" id="vKG-rY-gMw"/>
                             <constraint firstItem="ret-z1-HiZ" firstAttribute="trailing" secondItem="w1o-tR-DIe" secondAttribute="trailingMargin" id="yI8-FE-DJp"/>
+                            <constraint firstItem="dWM-9U-Pre" firstAttribute="trailing" secondItem="ret-z1-HiZ" secondAttribute="trailing" id="zSW-gz-UOb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="address" destination="aCM-Ae-Lyz" id="dhQ-WC-KNk"/>
                         <outlet property="imageView" destination="6gN-1L-bFy" id="6dU-7X-lok"/>
                         <outlet property="info" destination="dWM-9U-Pre" id="7qs-YO-8be"/>
                         <outlet property="name" destination="ret-z1-HiZ" id="iOw-nc-JvE"/>

@@ -15,9 +15,9 @@
 		274D07E11DD0CAAE002D86C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274D07DF1DD0CAAE002D86C9 /* LaunchScreen.storyboard */; };
 		274D07EA1DD0CEF6002D86C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274D07E91DD0CEF6002D86C9 /* MapKit.framework */; };
 		424831681DF6DDCA0052D31E /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424831661DF6DDCA0052D31E /* Pub.swift */; };
-		424831691DF6DDCA0052D31E /* PubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424831671DF6DDCA0052D31E /* PubAnnotation.swift */; };
 		4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248316A1DF6E44D0052D31E /* PubDetailController.swift */; };
 		425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D11F21E5C70E30045B44F /* CategoryController.swift */; };
+		4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4541E66E69700EBB8CF /* PubAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +32,9 @@
 		274D07E91DD0CEF6002D86C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		274D07EB1DD0D01A002D86C9 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		424831661DF6DDCA0052D31E /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
-		424831671DF6DDCA0052D31E /* PubAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubAnnotation.swift; sourceTree = "<group>"; };
 		4248316A1DF6E44D0052D31E /* PubDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDetailController.swift; sourceTree = "<group>"; };
 		425D11F21E5C70E30045B44F /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		4275D4541E66E69700EBB8CF /* PubAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubAnnotation.swift; sourceTree = "<group>"; };
 		5BA05660DC68655C82C25F18 /* Pods-Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A03DF75525EA2D1A162F18 /* Pods-Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,8 +85,8 @@
 				274D07D61DD0CAAE002D86C9 /* AppDelegate.swift */,
 				274D07D81DD0CAAE002D86C9 /* ViewController.swift */,
 				424831661DF6DDCA0052D31E /* Pub.swift */,
-				424831671DF6DDCA0052D31E /* PubAnnotation.swift */,
 				274D07DA1DD0CAAE002D86C9 /* Main.storyboard */,
+				4275D4541E66E69700EBB8CF /* PubAnnotation.swift */,
 				4248316A1DF6E44D0052D31E /* PubDetailController.swift */,
 				425D11F21E5C70E30045B44F /* CategoryController.swift */,
 				274D07EB1DD0D01A002D86C9 /* Location.gpx */,
@@ -230,9 +230,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424831691DF6DDCA0052D31E /* PubAnnotation.swift in Sources */,
 				424831681DF6DDCA0052D31E /* Pub.swift in Sources */,
 				4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */,
+				4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */,
 				274D07D91DD0CAAE002D86C9 /* ViewController.swift in Sources */,
 				274D07D71DD0CAAE002D86C9 /* AppDelegate.swift in Sources */,
 				425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */,
