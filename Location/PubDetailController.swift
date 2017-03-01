@@ -3,18 +3,21 @@ import UIKit
 class PubDetailController: UIViewController {
 
     var pub: Pub!
+    @IBOutlet weak var name: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let title = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        title.center = CGPoint(x: 160, y: 85)
-        title.textAlignment = .left
-        title.text = pub.name
-        title.numberOfLines = 0
-        title.lineBreakMode = NSLineBreakMode.byWordWrapping
-        self.view.addSubview(title)
+        name.text = pub.name!
+        
+//        let title = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+//        title.center = CGPoint(x: 160, y: 85)
+//        title.textAlignment = .left
+//        title.text = pub.name
+//        title.numberOfLines = 0
+//        title.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        self.view.addSubview(title)
     
         
         let image = UIImageView(image: UIImage(named: pub.name))
