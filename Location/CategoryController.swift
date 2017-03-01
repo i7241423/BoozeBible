@@ -14,7 +14,12 @@ class CategoryController: UIViewController  {
     var pickerSource: [String]!
     
     var prices = ["£1","£2","£3"]
-    var names = ["jon", "sam", "ash"]
+    var speciality = ["jon", "sam", "ash"]
+    var ambiance = ["trad", "rad", "flad"]
+    var food = ["no", "yes", "snacks"]
+    var beerGarden = ["no", "yes"]
+    var activities = ["darts", "snooker", "ping-pong" ]
+    var music = ["rock", "pop", "rap"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,7 @@ class CategoryController: UIViewController  {
 extension CategoryController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,9 +50,22 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             pickerSource = prices
+        } else if indexPath.row == 1 {
+            pickerSource = speciality
+        } else if indexPath.row == 2 {
+            pickerSource = ambiance
+        } else if indexPath.row == 3 {
+            pickerSource = food
+        } else if indexPath.row == 4 {
+            pickerSource = beerGarden
+        } else if indexPath.row == 5 {
+            pickerSource = activities
         } else {
-            pickerSource = names
+            pickerSource = music
         }
+
+
+        
         pickerView.reloadAllComponents()
     }
     
