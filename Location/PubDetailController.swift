@@ -15,7 +15,7 @@ class PubDetailController: UIViewController {
         
         name.text = pub.name!
         
-        let image = UIImageView(image: UIImage(named: pub.name))
+       let image = UIImageView(image: UIImage(named: pub.name))
         imageView.image = image.image
         
         

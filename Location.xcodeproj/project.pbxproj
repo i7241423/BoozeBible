@@ -18,6 +18,7 @@
 		4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248316A1DF6E44D0052D31E /* PubDetailController.swift */; };
 		425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D11F21E5C70E30045B44F /* CategoryController.swift */; };
 		4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4541E66E69700EBB8CF /* PubAnnotation.swift */; };
+		4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4248316A1DF6E44D0052D31E /* PubDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDetailController.swift; sourceTree = "<group>"; };
 		425D11F21E5C70E30045B44F /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		4275D4541E66E69700EBB8CF /* PubAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubAnnotation.swift; sourceTree = "<group>"; };
+		4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerTableViewCell.swift; sourceTree = "<group>"; };
 		5BA05660DC68655C82C25F18 /* Pods-Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A03DF75525EA2D1A162F18 /* Pods-Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				274D07DD1DD0CAAE002D86C9 /* Assets.xcassets */,
 				274D07DF1DD0CAAE002D86C9 /* LaunchScreen.storyboard */,
 				274D07E21DD0CAAE002D86C9 /* Info.plist */,
+				4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */,
 				424831681DF6DDCA0052D31E /* Pub.swift in Sources */,
 				4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */,
 				4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */,

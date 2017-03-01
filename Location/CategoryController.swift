@@ -7,15 +7,15 @@ import SwiftyJSON
 
 class CategoryController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    @IBOutlet weak var Picker1: UIPickerView!
-    
+    @IBOutlet weak var costOfPintPicker: UIPickerView!
+
     var Array = ["£1","£2","£3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Picker1.delegate = self
-        Picker1.dataSource = self
+        costOfPintPicker.delegate = self
+        costOfPintPicker.dataSource = self
         
     }
     
