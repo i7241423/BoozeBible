@@ -26,34 +26,21 @@ class ViewController: UIViewController {
             "ContentType": "application/json"
         ]
         
-        Alamofire.request("http://46.101.42.98/venues/index", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/api/venues", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
             let json = JSON(data: data)
             
-            print(json)
-            
+            for pubJSON in json["data"].arrayValue {
+                let pub = Pub(json: pubJSON)
+                self.pubs.append(pub)
+
+                let annotation = PubAnnotation(pub: pub)
+                self.mapView.addAnnotation(annotation)
+            }
             
         }
-        
-//        Alamofire.request("http://46.101.42.98/venues/index.json").response { [unowned self] response in
-//            URLCache.shared.removeAllCachedResponses()
-//            guard let data = response.data else { return }
-//            
-//            let json = JSON(data: data)
-//            
-//            print(json)
-//            for pubJSON in json["pubs"].arrayValue {
-//                
-//                let pub = Pub(json: pubJSON)
-//                self.pubs.append(pub)
-//                
-//                let annotation = PubAnnotation(pub: pub)
-//                self.mapView.addAnnotation(annotation)
-//            }
-//            
-//        }
         
     }
     

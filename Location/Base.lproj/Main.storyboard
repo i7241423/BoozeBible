@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,11 +101,24 @@
                                     <segue destination="i6v-9h-bhP" kind="show" id="8YO-qd-Bw8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ret-z1-HiZ">
-                                <rect key="frame" x="152" y="181" width="84" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ret-z1-HiZ">
+                                <rect key="frame" x="16" y="230" width="343" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="VrK-l5-co1"/>
+                                    <constraint firstAttribute="height" constant="25" id="pMK-qd-cxc"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-1L-bFy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="ye0-rX-o3F"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-9U-Pre">
+                                <rect key="frame" x="16" y="263" width="343" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -112,11 +126,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ret-z1-HiZ" firstAttribute="top" secondItem="hVA-wh-Kwa" secondAttribute="bottom" constant="117" id="fLl-4L-MDl"/>
-                            <constraint firstItem="ret-z1-HiZ" firstAttribute="leading" secondItem="w1o-tR-DIe" secondAttribute="leading" constant="152" id="pvr-EG-xMs"/>
+                            <constraint firstItem="6gN-1L-bFy" firstAttribute="leading" secondItem="w1o-tR-DIe" secondAttribute="leading" id="CTP-k0-MmQ"/>
+                            <constraint firstItem="ret-z1-HiZ" firstAttribute="top" secondItem="6gN-1L-bFy" secondAttribute="bottom" constant="8" id="dAk-AB-Y9Y"/>
+                            <constraint firstAttribute="trailing" secondItem="6gN-1L-bFy" secondAttribute="trailing" id="dmy-ce-EGC"/>
+                            <constraint firstItem="6gN-1L-bFy" firstAttribute="top" secondItem="hVA-wh-Kwa" secondAttribute="bottom" id="fmL-jA-Ma3"/>
+                            <constraint firstItem="ret-z1-HiZ" firstAttribute="leading" secondItem="w1o-tR-DIe" secondAttribute="leadingMargin" id="vKG-rY-gMw"/>
+                            <constraint firstItem="ret-z1-HiZ" firstAttribute="trailing" secondItem="w1o-tR-DIe" secondAttribute="trailingMargin" id="yI8-FE-DJp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="6gN-1L-bFy" id="6dU-7X-lok"/>
+                        <outlet property="info" destination="dWM-9U-Pre" id="7qs-YO-8be"/>
                         <outlet property="name" destination="ret-z1-HiZ" id="iOw-nc-JvE"/>
                     </connections>
                 </viewController>
