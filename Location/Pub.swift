@@ -13,7 +13,7 @@ class Pub: CustomStringConvertible {
     let sub: String!
     let desc: String!
     let addr: String!
-    let img: String!
+    let venueImg: String!
     
     
     init(json: JSON) {
@@ -22,7 +22,7 @@ class Pub: CustomStringConvertible {
         sub = json["sub"].stringValue
         desc = json["desc"].stringValue
         addr = json["addr"].stringValue
-        img = json["addr"].stringValue
+        venueImg = json["addr"].stringValue
         
     }
     

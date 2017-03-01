@@ -18,13 +18,14 @@ class PubDetailController: UIViewController {
         let image = UIImageView(image: UIImage(named: pub.name))
         imageView.image = image.image
         
+        
+        
         info.text = pub.desc!
         info.numberOfLines = 0
         info.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         address.text = pub.addr!
-        
-
+       
     
           print(pub)
     }

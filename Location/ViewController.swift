@@ -82,7 +82,7 @@ extension ViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             
             
-            let imageView = UIImageView(image: UIImage(named: annotation.pub.name))
+            let imageView = UIImageView(image: UIImage(named: annotation.pub.venueImg))
             imageView.frame = CGRect( x: 0, y: 0, width: 40, height: 40)
             annotationView.leftCalloutAccessoryView = imageView
             
