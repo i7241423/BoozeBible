@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var pubs = [Pub]()
+    var specialities = [Speciality] ()
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
         
         mapView.delegate = self
         mapView.setUserTrackingMode(.follow, animated: true)
+        
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -40,6 +42,19 @@ class ViewController: UIViewController {
                 self.mapView.addAnnotation(annotation)
             }
             
+        }
+        
+        Alamofire.request("http://46.101.42.98/api/specialities", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+            URLCache.shared.removeAllCachedResponses()
+            guard let data = response.data else { return }
+            
+            let json = JSON(data: data)
+            
+            for SpecialityJSON in json["data"].arrayValue{
+                let speciality = Speciality(json: SpecialityJSON)
+                self.specialities.append(speciality)
+                
+            }
         }
         
     }

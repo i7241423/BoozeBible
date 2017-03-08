@@ -13,17 +13,19 @@ class PubDetailController: UIViewController {
         super.viewDidLoad()
         
         
-        name.text = pub.name!
-        
-       let image = UIImageView(image: UIImage(named: pub.name))
+        //Venue image
+        let image = UIImageView(image: UIImage(named: pub.name))
         imageView.image = image.image
         
-        
-        
+        //Venuename
+        name.text = pub.name!
+       
+        //Venue Description
         info.text = pub.desc!
         info.numberOfLines = 0
         info.lineBreakMode = NSLineBreakMode.byWordWrapping
         
+        //Venue Address
         address.text = pub.addr!
        
     
