@@ -19,8 +19,8 @@
 		425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D11F21E5C70E30045B44F /* CategoryController.swift */; };
 		4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4541E66E69700EBB8CF /* PubAnnotation.swift */; };
 		4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */; };
+		427BFC921E72D1AA0024C413 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BFC911E72D1AA0024C413 /* SearchController.swift */; };
 		42F7B51D1E6ED8FB00F4CA8C /* Speciality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7B51C1E6ED8FB00F4CA8C /* Speciality.swift */; };
-		42F7B5231E6F0B1900F4CA8C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7B5221E6F0B1900F4CA8C /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,8 @@
 		425D11F21E5C70E30045B44F /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		4275D4541E66E69700EBB8CF /* PubAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubAnnotation.swift; sourceTree = "<group>"; };
 		4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerTableViewCell.swift; sourceTree = "<group>"; };
+		427BFC911E72D1AA0024C413 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		42F7B51C1E6ED8FB00F4CA8C /* Speciality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speciality.swift; sourceTree = "<group>"; };
-		42F7B5221E6F0B1900F4CA8C /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		5BA05660DC68655C82C25F18 /* Pods-Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A03DF75525EA2D1A162F18 /* Pods-Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,10 +93,10 @@
 				42F7B51C1E6ED8FB00F4CA8C /* Speciality.swift */,
 				424831661DF6DDCA0052D31E /* Pub.swift */,
 				274D07DA1DD0CAAE002D86C9 /* Main.storyboard */,
-				42F7B5221E6F0B1900F4CA8C /* SearchController.swift */,
 				4275D4541E66E69700EBB8CF /* PubAnnotation.swift */,
 				4248316A1DF6E44D0052D31E /* PubDetailController.swift */,
 				425D11F21E5C70E30045B44F /* CategoryController.swift */,
+				427BFC911E72D1AA0024C413 /* SearchController.swift */,
 				274D07EB1DD0D01A002D86C9 /* Location.gpx */,
 				274D07DD1DD0CAAE002D86C9 /* Assets.xcassets */,
 				274D07DF1DD0CAAE002D86C9 /* LaunchScreen.storyboard */,
@@ -246,7 +246,7 @@
 				4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */,
 				274D07D91DD0CAAE002D86C9 /* ViewController.swift in Sources */,
 				274D07D71DD0CAAE002D86C9 /* AppDelegate.swift in Sources */,
-				42F7B5231E6F0B1900F4CA8C /* SearchController.swift in Sources */,
+				427BFC921E72D1AA0024C413 /* SearchController.swift in Sources */,
 				425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
