@@ -1,5 +1,3 @@
-
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -17,6 +15,10 @@ class SearchController: UIViewController  {
         tableView.dataSource = self
         
     }
+    
+}
+
+extension SearchController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
@@ -25,8 +27,7 @@ class SearchController: UIViewController  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         
-        cell.textLabel?.text = "Hello"
-        
         return cell
+        
     }
 }
