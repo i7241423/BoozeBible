@@ -8,13 +8,13 @@ class Speciality: CustomStringConvertible {
         return "This speciality is  \(name!)"
     }
     
-
     let name: String!
     
     
     init(json: JSON) {
         name = json["name"].stringValue
-            }
+    }
+    
     
     
 }

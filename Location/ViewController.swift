@@ -50,8 +50,8 @@ class ViewController: UIViewController {
             
             let json = JSON(data: data)
             
-            for SpecialityJSON in json["data"].arrayValue{
-                let speciality = Speciality(json: SpecialityJSON)
+            for specialityJSON in json["data"].arrayValue{
+                let speciality = Speciality(json: specialityJSON)
                 self.specialities.append(speciality)
                 
             }

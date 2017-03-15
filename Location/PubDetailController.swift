@@ -13,6 +13,7 @@ class PubDetailController: UIViewController {
         super.viewDidLoad()
         
         
+        
         //Venue image
         let image = UIImageView(image: UIImage(named: pub.name))
         imageView.image = image.image
@@ -27,9 +28,7 @@ class PubDetailController: UIViewController {
         
         //Venue Address
         address.text = pub.addr!
-       
     
-          print(pub)
     }
 
 

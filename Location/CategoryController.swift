@@ -15,15 +15,39 @@ class CategoryController: UIViewController  {
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Tequila", "Gin","Rum", "Whisky", "Vodka","Ale's", "Brandy", "Wine","Cocktails"]
-    //var speciality: Speciality = Speciality()
-    //var speciality = Speciality.name!
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["No", "Yes"]
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"  ]
     var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied"]
     
+
+    @IBAction func send(_ sender: Any) {
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "ContentType": "application/json"
+        ]
+        
+        let params: [String: Any] = [
+            "venue_id": 3,
+            "speciality_id": 3
+            
+        ]
+        
+        Alamofire.request("http://46.101.42.98/venue-specialities/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
+        }
+        
+        let paramss: [String: Any] = [
+            "venue_id": 3,
+            "cost_id": 3
+        ]
+        
+        Alamofire.request("http://46.101.42.98/venue-costs/add", method: .post, parameters: paramss, headers: headers).response { [unowned self] response in
+        }
+    }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerSource = prices
@@ -47,19 +71,19 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
 
         if indexPath.row == 0 {
-            cell.textLabel?.text = "What is the cost of the cheapest pint?"
+            cell.textLabel?.text = "Cost of pint? (Cheapest)"
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Does the venue have a drinks speciality?"
+            cell.textLabel?.text = "Drinks speciality?"
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "What is the ambiance of the venue?"
+            cell.textLabel?.text = "Ambiance?"
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = "Does the venue sell food?"
+            cell.textLabel?.text = "Food?"
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = "Does the venue have a beer garden or smoking area?"
+            cell.textLabel?.text = "Beer garden or smoking area?"
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = "Does the venue have the following activity?"
+            cell.textLabel?.text = "Additional activities?"
         } else if indexPath.row == 6 {
-           cell.textLabel?.text = "What sort of music is usually played?"
+           cell.textLabel?.text = "Music?"
         } else {
             cell.textLabel?.text = "Cost of Cheapest Pint?"
         }
