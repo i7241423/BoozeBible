@@ -8,6 +8,7 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var specialityResult: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class PubDetailController: UIViewController {
         
         //Venue Address
         address.text = pub.addr!
+        
     
     }
 
