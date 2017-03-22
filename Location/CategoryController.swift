@@ -31,9 +31,9 @@ class CategoryController: UIViewController  {
     
 
     @IBAction func send(_ sender: Any) {
+        
         guard let data = data else { return }
         guard let tableName = data["table"], let paramName = data["param"] else { return }
-        //Send data to database regarding speciality
 
         let headers: HTTPHeaders = [
             "Accept": "application/json",

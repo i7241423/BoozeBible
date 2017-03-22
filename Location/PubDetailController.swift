@@ -19,7 +19,7 @@ class PubDetailController: UIViewController {
         imageView.image = image.image
         
         //Venuename
-        name.text = pub.name!
+        navigationItem.title = pub.name!
        
         //Venue Description
         info.text = pub.desc!
