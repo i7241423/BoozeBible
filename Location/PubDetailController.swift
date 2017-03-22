@@ -8,8 +8,7 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var specialityResult: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

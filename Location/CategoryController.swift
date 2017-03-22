@@ -24,19 +24,24 @@ class CategoryController: UIViewController  {
 
     @IBAction func send(_ sender: Any) {
         
+        //Send data to database regarding speciality
+
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
         
         let params: [String: Any] = [
-            "venue_id": 3,
+            "venue_id": 4,
             "speciality_id": 3
             
         ]
         
         Alamofire.request("http://46.101.42.98/venue-specialities/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
         }
+        
+        //Send data to database regarding cost of pint
         
         let paramss: [String: Any] = [
             "venue_id": 3,
