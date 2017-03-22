@@ -12,44 +12,43 @@ class CategoryController: UIViewController  {
     @IBOutlet weak var tableView: UITableView!
     
     var pickerSource: [String]!
+    var pub: Pub!
+    
+    var dataArray = [
+        ["param": "cost_id", "table": "venue-costs"],
+        ["param": "speciality_id", "table": "venue-specialities"]
+    ]
+    
+    var data: [String: String]?
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Tequila", "Gin","Rum", "Whisky", "Vodka","Ale's", "Brandy", "Wine","Cocktails"]
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
-    var beerGarden = ["No", "Yes"]
+    var beerGarden = ["Beer Garden", "Smoking Area", "None"]
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"  ]
-    var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied"]
+    var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
     
 
     @IBAction func send(_ sender: Any) {
-        
+        guard let data = data else { return }
+        guard let tableName = data["table"], let paramName = data["param"] else { return }
         //Send data to database regarding speciality
 
-        
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
         
         let params: [String: Any] = [
-            "venue_id": 4,
-            "speciality_id": 3
-            
+            "venue_id": 8,
+            paramName: pickerView.selectedRow(inComponent: 0)
         ]
         
-        Alamofire.request("http://46.101.42.98/venue-specialities/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
+            print("sent")
         }
         
-        //Send data to database regarding cost of pint
-        
-        let paramss: [String: Any] = [
-            "venue_id": 3,
-            "cost_id": 3
-        ]
-        
-        Alamofire.request("http://46.101.42.98/venue-costs/add", method: .post, parameters: paramss, headers: headers).response { [unowned self] response in
-        }
     }
     
 
@@ -62,6 +61,7 @@ class CategoryController: UIViewController  {
         
         tableView.delegate = self
         tableView.dataSource = self
+
         
     }
 }
@@ -117,6 +117,8 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         }
     
         pickerView.reloadAllComponents()
+        
+        data = dataArray[indexPath.row]
     }
     
 }
