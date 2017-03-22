@@ -16,7 +16,12 @@ class CategoryController: UIViewController  {
     
     var dataArray = [
         ["param": "cost_id", "table": "venue-costs"],
-        ["param": "speciality_id", "table": "venue-specialities"]
+        ["param": "speciality_id", "table": "venue-specialities"],
+        ["param": "ambiance_id", "table": "venue-ambiances"],
+        ["param": "food_id", "table": "venue-foods"],
+        ["param": "garden_id", "table": "venue-gardens"],
+        ["param": "activity_id", "table": "venue-activities"],
+        ["param": "music_id", "table": "venue-musics"]
     ]
     
     var data: [String: String]?
@@ -41,8 +46,8 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 8,
-            paramName: pickerView.selectedRow(inComponent: 0)
+            "venue_id": 11,
+            //paramName: pickerView.selectedRow(inComponent: 0)
         ]
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in

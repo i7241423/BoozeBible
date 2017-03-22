@@ -4,11 +4,13 @@ class PubDetailController: UIViewController {
 
     var pub: Pub!
     
-    @IBOutlet weak var name: UILabel!
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
-
+    @IBOutlet weak var telephone: UILabel!
+    
+    @IBOutlet weak var website: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,12 @@ class PubDetailController: UIViewController {
         
         //Venue Address
         address.text = pub.addr!
+        
+        //Venue Telephone
+        telephone.text = pub.telephone!
+        
+        //Venue Website
+        website.text = pub.website!
         
     
     }

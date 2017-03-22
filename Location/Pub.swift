@@ -13,6 +13,8 @@ class Pub: CustomStringConvertible {
     let sub: String!
     let desc: String!
     let addr: String!
+    let telephone: String!
+    let website: String!
     
     init(json: JSON) {
         location = CLLocationCoordinate2D(latitude: json["lat"].doubleValue, longitude: json["lng"].doubleValue)
@@ -20,6 +22,8 @@ class Pub: CustomStringConvertible {
         sub = json["sub"].stringValue
         desc = json["description"].stringValue
         addr = json["addr"].stringValue
+        telephone = json["telephone"].stringValue
+        website = json["website"].stringValue
         
     }
     
