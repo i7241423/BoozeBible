@@ -42,7 +42,7 @@
                                     <outlet property="delegate" destination="5ud-GH-96t" id="AhP-kN-j9u"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="013468 000000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOf-8v-dIA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="'013468 000000'" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOf-8v-dIA">
                                 <rect key="frame" x="16" y="496" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -52,7 +52,7 @@
                                     <outlet property="delegate" destination="5ud-GH-96t" id="Ruj-6G-5jf"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="www.example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHE-Bp-qhy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="'www.example.com'" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHE-Bp-qhy">
                                 <rect key="frame" x="16" y="548" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -72,8 +72,8 @@
                                     <outlet property="delegate" destination="5ud-GH-96t" id="8tN-dF-XpO"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btB-aG-zEl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder-camera-green" translatesAutoresizingMaskIntoConstraints="NO" id="btB-aG-zEl">
+                                <rect key="frame" x="97" y="66" width="180" height="142"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-W1-3bo">
@@ -138,12 +138,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdG-IZ-ez9">
-                                <rect key="frame" x="133" y="184" width="108" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VD8-kb-ha2">
+                                <rect key="frame" x="297" y="110" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Open Library"/>
+                                <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="photLibraryAction:" destination="5ud-GH-96t" eventType="touchUpInside" id="g7B-VS-ysl"/>
+                                    <action selector="camerButtonAction:" destination="5ud-GH-96t" eventType="touchUpInside" id="R2b-HS-QoG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MO-pN-Qtv">
@@ -154,12 +154,12 @@
                                     <action selector="saveAction:" destination="5ud-GH-96t" eventType="touchUpInside" id="ULj-oo-eKd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VD8-kb-ha2">
-                                <rect key="frame" x="148" y="157" width="78" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdG-IZ-ez9">
+                                <rect key="frame" x="133" y="178" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
+                                <state key="normal" title="Upload image"/>
                                 <connections>
-                                    <action selector="camerButtonAction:" destination="5ud-GH-96t" eventType="touchUpInside" id="R2b-HS-QoG"/>
+                                    <action selector="photLibraryAction:" destination="5ud-GH-96t" eventType="touchUpInside" id="g7B-VS-ysl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -480,4 +480,7 @@
             <point key="canvasLocation" x="1844" y="744.3778110944528"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder-camera-green" width="1000" height="1000"/>
+    </resources>
 </document>

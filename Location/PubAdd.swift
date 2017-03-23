@@ -66,11 +66,6 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
         saveNotice()
     }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!){
-        pickedImaged.image = image
-        self.dismiss(animated: true, completion: nil);
-    }
     
     func saveNotice(){
         let alertController = UIAlertController(title:"Image Saved!", message: "Your picture was successfully saved.", preferredStyle: .alert)
@@ -78,6 +73,15 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    // Display image selected from camera or photo library
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!){
+        pickedImaged.image = image
+        self.dismiss(animated: true, completion: nil);
+    }
+    
+   
     
     @IBOutlet weak var textView: UITextView!
 
