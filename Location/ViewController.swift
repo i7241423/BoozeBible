@@ -8,7 +8,7 @@ class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var pubs = [Pub]()
-    var specialities = [Speciality] ()
+    var specialities = [Speciality]()
     
     @IBOutlet weak var mapView: MKMapView!
     

@@ -47,11 +47,12 @@ class CategoryController: UIViewController  {
         
         let params: [String: Any] = [
             "venue_id": 11,
-            //paramName: pickerView.selectedRow(inComponent: 0)
+            paramName: pickerView.selectedRow(inComponent: 0)
         ]
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             print("sent")
+            print(response)
         }
         
     }
