@@ -52,7 +52,6 @@ class CategoryController: UIViewController  {
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             print("sent")
-            print(response)
         }
         
     }

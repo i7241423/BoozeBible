@@ -1,33 +1,66 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
-
-
-class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    var userLocation: CLLocation?
     
     // Send data from form to DB
     @IBAction func send(_ sender: Any) {
-    
+        
+        guard let userLocation = userLocation else {
+            //dont have user location...
+            return
+        }
+        
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
         
         let params: [String: Any] = [
-            "name": "Test",
-            "sub": "Cheese and disco nightclub",
-            "description": "Groove along with a thousand others to the anthems in our venue Vinyl; this is the new breed of club that has it all. ",
-            "addr": "Fir Vale Rd, Bournemouth, BH1 2JA",
-            "telephone": "0",
-            "website": "",
-            "lat": 50.722041,
-            "lng": -1.873764,
+            "name": nameView.text!,
+            "sub": subNameView.text!,
+            "description": textView.text!,
+            "addr": addrView.text!,
+            "telephone": phoneView.text!,
+            "website": siteView.text!,
+            "lat": userLocation.coordinate.latitude,
+            "lng": userLocation.coordinate.longitude,
         ]
         
-        Alamofire.request("http://46.101.42.98/venues/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
-            print("sent")
+        Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
+            
+            guard let data = response.data else {
+                //handle error and let user know...
+                print("no data returned")
+                return
+            }
+            
+            let json = JSON(data: data)
+            
+            guard let _ = json["success"].bool else {
+                print("invalid data")
+                return
+            }
+            
+            //everything worked...
+            
+            
         }
+        
+        submitNotice()
+    }
+    
+    func submitNotice(){
+        let alertController = UIAlertController(title:"Venue Added!", message: "The venue, \(nameView.text!), was successfully saved.", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     // Oulet for venue image
@@ -83,7 +116,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
    
     
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: UITextView! //description
 
     @IBOutlet weak var nameView: UITextField!
     
@@ -99,6 +132,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         nameView.delegate = self
         subNameView.delegate = self

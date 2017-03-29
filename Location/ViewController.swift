@@ -9,6 +9,7 @@ class ViewController: UIViewController {
     let locationManager = CLLocationManager()
     var pubs = [Pub]()
     var specialities = [Speciality]()
+    var userLocation: CLLocation?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -64,6 +65,12 @@ class ViewController: UIViewController {
             let vc = segue.destination as! PubDetailController
             vc.pub = sender as! Pub
         }
+        
+        if segue.identifier == "AddPub" {
+            let vc = segue.destination as! PubAddController
+            vc.userLocation = userLocation
+        }
+        
     }
     
 }
@@ -72,6 +79,10 @@ class ViewController: UIViewController {
 extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        userLocation = locations.last
+
+        
         
         //guard let location = locations.last else { return }
         //print(location)
