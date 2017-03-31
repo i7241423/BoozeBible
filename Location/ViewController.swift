@@ -1,3 +1,5 @@
+//https://www.andrewcbancroft.com/2014/10/08/fundamentals-of-nsnotificationcenter-in-swift/
+
 import UIKit
 import MapKit
 import Alamofire
@@ -108,7 +110,12 @@ extension ViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             
             
-            let imageView = UIImageView(image: UIImage(named: annotation.pub.name))
+            let imageView = UIImageView()
+            if let filePath = Bundle.main.path(forResource: annotation.pub.imgURL, ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
+                imageView.contentMode = .scaleAspectFit
+                imageView.image = image
+            }
+            
             imageView.frame = CGRect( x: 0, y: 0, width: 40, height: 40)
             annotationView.leftCalloutAccessoryView = imageView
             

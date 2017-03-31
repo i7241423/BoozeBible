@@ -11,6 +11,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     // Send data from form to DB
     @IBAction func send(_ sender: Any) {
         
+        
         guard let userLocation = userLocation else {
             //dont have user location...
             return
@@ -47,16 +48,14 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
                 print("invalid data")
                 return
             }
-            
             //everything worked...
-            
-            
         }
         
         submitNotice()
     }
     
     func submitNotice(){
+        
         let alertController = UIAlertController(title:"Venue Added!", message: "The venue, \(nameView.text!), was successfully saved.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)

@@ -15,7 +15,17 @@ class Pub: CustomStringConvertible {
     let addr: String!
     let telephone: String!
     let website: String!
-    let venueMusics: Double!
+    let imgURL: String!
+    let venueID: String!
+    
+    //Categories
+    let venueMusics: String!
+    let venueActivities: String!
+    let venueGardens: String!
+    let venueFoods: String!
+    let venueAmbiances: String!
+    let venueCosts: String!
+    let venueSpecialities: String!
     
     init(json: JSON) {
         location = CLLocationCoordinate2D(latitude: json["lat"].doubleValue, longitude: json["lng"].doubleValue)
@@ -25,7 +35,17 @@ class Pub: CustomStringConvertible {
         addr = json["addr"].stringValue
         telephone = json["telephone"].stringValue
         website = json["website"].stringValue
-        venueMusics = json["venue_musics"][0]["music_id"].doubleValue
+        imgURL = json["imgURL"].stringValue
+        venueID = json["id"].stringValue
+        
+        //Categories
+        venueMusics = json["venue_musics"][0]["music_id"].stringValue
+        venueActivities = json["venue_activities"][0]["activity_id"].stringValue
+        venueGardens = json["venue_gardens"][0]["garden_id"].stringValue
+        venueFoods = json["venue_foods"][0]["food_id"].stringValue
+        venueAmbiances = json["venue_ambiances"][0]["ambiance_id"].stringValue
+        venueCosts = json["venue_costs"][0]["cost_id"].stringValue
+        venueSpecialities = json["venue_specialities"][0]["speciality_id"].stringValue
         
     }
     

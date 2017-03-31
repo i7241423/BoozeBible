@@ -12,6 +12,7 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var website: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,8 +20,15 @@ class PubDetailController: UIViewController {
         tableView.dataSource = self
         
         //Venue image
-        let image = UIImageView(image: UIImage(named: pub.name))
-        imageView.image = image.image
+        let imageView = UIImageView()
+        if let filePath = Bundle.main.path(forResource: pub.imgURL, ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = image
+        }
+        //let image = UIImageView(image: UIImage(named: pub.name))
+        //imageView.image = image.image
+
+        
         
         //Venuename
         navigationItem.title = pub.name!
@@ -40,7 +48,8 @@ class PubDetailController: UIViewController {
         
         //Venue Website
         website.text = pub.website!
-        
+       
+        tableView.reloadData()
     
     }
 
@@ -57,21 +66,21 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = "'Cost of pint'"
+            cell.textLabel?.text = pub.venueCosts as String
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "'Drinks speciality'"
+            cell.textLabel?.text = pub.venueSpecialities
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "'Ambiance'"
+            cell.textLabel?.text = pub.venueAmbiances
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = "'Food'"
+            cell.textLabel?.text = pub.venueFoods
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = "'Beer garden or smoking area'"
+            cell.textLabel?.text = pub.venueGardens
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = "'Additional activities'"
+            cell.textLabel?.text = pub.venueActivities
         } else if indexPath.row == 6 {
-            cell.textLabel?.text = "'Music'"
+            cell.textLabel?.text = pub.venueMusics
         } else {
-            cell.textLabel?.text = "Cost of Cheapest Pint?"
+            cell.textLabel?.text = pub.venueCosts
         }
         return cell
     }

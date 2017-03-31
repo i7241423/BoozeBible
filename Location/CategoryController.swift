@@ -46,12 +46,13 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 11,
+            "venue_id": pub.venueID,
             paramName: pickerView.selectedRow(inComponent: 0)
         ]
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             print("sent")
+            print(params)
         }
         
     }
@@ -95,7 +96,7 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         } else if indexPath.row == 6 {
            cell.textLabel?.text = "Music?"
         } else {
-            cell.textLabel?.text = "Cost of Cheapest Pint?"
+            cell.textLabel?.text = "Cost of pint? (Cheapest)"
         }
         return cell
     }
