@@ -11,6 +11,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     // Send data from form to DB
     @IBAction func send(_ sender: Any) {
         
+        view.endEditing(true)
         
         guard let userLocation = userLocation else {
             //dont have user location...
@@ -52,6 +53,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         }
         
         submitNotice()
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func submitNotice(){
@@ -97,6 +102,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         let compressedJPEGImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
         saveNotice()
+        
     }
     
     func saveNotice(){
@@ -113,9 +119,12 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         self.dismiss(animated: true, completion: nil);
     }
     
-   
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
-    @IBOutlet weak var textView: UITextView! //description
+    
+    @IBOutlet weak var textView: UITextView!
 
     @IBOutlet weak var nameView: UITextField!
     
@@ -126,6 +135,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     @IBOutlet weak var phoneView: UITextField!
     
     @IBOutlet weak var siteView: UITextField!
+    
     
     //View did load function
     
@@ -147,9 +157,11 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         textView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1.0
         textView.layer.cornerRadius = 5
+        
 
     }
     
+   
     //When editing decription changes colour to black
     
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -47,9 +47,11 @@ class PubDetailController: UIViewController {
         telephone.text = pub.telephone!
         
         //Venue Website
-        website.text = pub.website!
+        website.text = pub.venueCosts!
        
         tableView.reloadData()
+        
+        
     
     }
 
@@ -66,19 +68,19 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = pub.venueCosts as String
+            cell.textLabel?.text = "£1 - £2.50" //pub.venueCosts
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = pub.venueSpecialities
+            cell.textLabel?.text =  "None"//pub.venueSpecialities
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = pub.venueAmbiances
+            cell.textLabel?.text = "Student" //pub.venueAmbiances
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = pub.venueFoods
+            cell.textLabel?.text = "No" //pub.venueFoods
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = pub.venueGardens
+            cell.textLabel?.text = "Smoking Area" //pub.venueGardens
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = pub.venueActivities
+            cell.textLabel?.text = "Comedy Nights" //pub.venueActivities
         } else if indexPath.row == 6 {
-            cell.textLabel?.text = pub.venueMusics
+            cell.textLabel?.text =  "Varied" //pub.venueMusics
         } else {
             cell.textLabel?.text = pub.venueCosts
         }
