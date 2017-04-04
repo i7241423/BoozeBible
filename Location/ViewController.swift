@@ -1,5 +1,3 @@
-//https://www.andrewcbancroft.com/2014/10/08/fundamentals-of-nsnotificationcenter-in-swift/
-
 import UIKit
 import MapKit
 import Alamofire
