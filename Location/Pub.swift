@@ -13,6 +13,7 @@ class Pub: CustomStringConvertible {
     let sub: String!
     let desc: String!
     let addr: String!
+    let postcode: String!
     let telephone: String!
     let website: String!
     let imgURL: String!
@@ -33,6 +34,7 @@ class Pub: CustomStringConvertible {
         sub = json["sub"].stringValue
         desc = json["description"].stringValue
         addr = json["addr"].stringValue
+        postcode = json["postcode"].stringValue
         telephone = json["telephone"].stringValue
         website = json["website"].stringValue
         imgURL = json["imgURL"].stringValue

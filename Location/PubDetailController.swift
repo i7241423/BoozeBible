@@ -8,6 +8,7 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var postcode: UILabel!
     @IBOutlet weak var telephone: UILabel!
     @IBOutlet weak var website: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -43,20 +44,25 @@ class PubDetailController: UIViewController {
         address.numberOfLines = 0
         address.lineBreakMode = NSLineBreakMode.byWordWrapping
         
+        //Venue postcode
+        postcode.text = pub.postcode!
+      
+        
         //Venue Telephone
         telephone.text = pub.telephone!
         
         //Venue Website
-        website.text = pub.venueCosts!
+        website.text = pub.website!
+        website.numberOfLines = 0
+        website.lineBreakMode = NSLineBreakMode.byWordWrapping
        
         tableView.reloadData()
-        
-        
     
     }
 
 
 }
+
 
 extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
     
@@ -68,19 +74,19 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = "£1 - £2.50" //pub.venueCosts
+            cell.textLabel?.text = pub.venueCosts
         } else if indexPath.row == 1 {
-            cell.textLabel?.text =  "None"//pub.venueSpecialities
+            cell.textLabel?.text = pub.venueSpecialities
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Student" //pub.venueAmbiances
+            cell.textLabel?.text = pub.venueAmbiances
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = "No" //pub.venueFoods
+            cell.textLabel?.text = pub.venueFoods
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = "Smoking Area" //pub.venueGardens
+            cell.textLabel?.text = pub.venueGardens
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = "Comedy Nights" //pub.venueActivities
+            cell.textLabel?.text = pub.venueActivities
         } else if indexPath.row == 6 {
-            cell.textLabel?.text =  "Varied" //pub.venueMusics
+            cell.textLabel?.text = pub.venueMusics
         } else {
             cell.textLabel?.text = pub.venueCosts
         }
@@ -88,3 +94,5 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
+

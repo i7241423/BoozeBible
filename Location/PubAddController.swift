@@ -29,6 +29,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "sub": subNameView.text!,
             "description": textView.text!,
             "addr": addrView.text!,
+            "postcode": addrView.text!,
             "telephone": phoneView.text!,
             "website": siteView.text!,
             "lat": userLocation.coordinate.latitude,
@@ -55,6 +56,9 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             }
             //everything worked...
         }
+        
+       
+        
         
         submitNotice()
         
@@ -138,6 +142,8 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     @IBOutlet weak var subNameView: UITextField!
     
     @IBOutlet weak var addrView: UITextField!
+    
+    @IBOutlet weak var postCodeView: UITextField!
     
     @IBOutlet weak var phoneView: UITextField!
     
