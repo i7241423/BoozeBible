@@ -161,7 +161,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="send:" destination="QgT-be-GCK" eventType="touchUpInside" id="7zU-pb-ZCi"/>
+                                                    <action selector="demo:" destination="QgT-be-GCK" eventType="touchUpInside" id="xeV-yv-8Kc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -279,7 +279,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Joy-RI-imH">
                             <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="QgT-be-GCK" kind="show" id="Gob-dK-7HR"/>
+                                <segue destination="QgT-be-GCK" kind="show" identifier="AddPub" id="Gob-dK-7HR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

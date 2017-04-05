@@ -5,20 +5,19 @@ import CoreLocation
 
 class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     var userLocation: CLLocation?
     
-    // Send data from form to DB
-    @IBAction func send(_ sender: Any) {
-        
+    @IBAction func demo(_ sender: Any) {
+    
         
         view.endEditing(true)
+        
+        print("button")
         
         guard let userLocation = userLocation else {
             //dont have user location...
             return
         }
-        
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -34,7 +33,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "website": siteView.text!,
             "lat": userLocation.coordinate.latitude,
             "lng": userLocation.coordinate.longitude,
-            ]
+            "imgURL": pickedImaged.image!
+
+        ]
+    
         
         Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             
@@ -48,14 +50,16 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             
             guard let _ = json["success"].bool else {
                 print("invalid data")
+                print(params)
                 return
             }
             //everything worked...
         }
         
         submitNotice()
-
+        
     }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
