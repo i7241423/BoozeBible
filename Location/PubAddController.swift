@@ -11,6 +11,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     // Send data from form to DB
     @IBAction func send(_ sender: Any) {
         
+        
         view.endEditing(true)
         
         guard let userLocation = userLocation else {
@@ -33,7 +34,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "website": siteView.text!,
             "lat": userLocation.coordinate.latitude,
             "lng": userLocation.coordinate.longitude,
-        ]
+            ]
         
         Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             
@@ -53,7 +54,9 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         }
         
         submitNotice()
+
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
