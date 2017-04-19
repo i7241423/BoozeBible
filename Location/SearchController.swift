@@ -34,10 +34,12 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell
         
         let name = venuesArray[indexPath.row]["name"]
+        
         cell?.titleLabel.text = name as? String
         
         return cell!
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewPub" {
@@ -45,5 +47,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             vc.pub = sender as! Pub
         }
     }
+    
+    
+    
 }
 
