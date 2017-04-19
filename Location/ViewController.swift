@@ -45,18 +45,18 @@ class ViewController: UIViewController {
             
         }
         
-        Alamofire.request("http://46.101.42.98/api/specialities", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
-            URLCache.shared.removeAllCachedResponses()
-            guard let data = response.data else { return }
-            
-            let json = JSON(data: data)
-            
-            for specialityJSON in json["data"].arrayValue{
-                let speciality = Speciality(json: specialityJSON)
-                self.specialities.append(speciality)
-                
-            }
-        }
+//        Alamofire.request("http://46.101.42.98/api/specialities", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+//            URLCache.shared.removeAllCachedResponses()
+//            guard let data = response.data else { return }
+//            
+//            let json = JSON(data: data)
+//            
+//            for specialityJSON in json["data"].arrayValue{
+//                let speciality = Speciality(json: specialityJSON)
+//                self.specialities.append(speciality)
+//                
+//            }
+//        }
         
     }
     
