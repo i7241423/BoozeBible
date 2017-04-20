@@ -42,7 +42,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewPub" {
+        if segue.identifier == "viewPub" {
             let vc = segue.destination as! PubDetailController
             vc.pub = sender as! Pub
         }
@@ -50,5 +50,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     
+    
 }
+
+
 
