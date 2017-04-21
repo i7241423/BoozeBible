@@ -383,7 +383,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8K1-xt-Jxl" id="fdV-p9-hvb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="112.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycy-Mj-eoQ">
@@ -423,7 +423,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="idx-7c-6eg" id="j8c-iA-LYF"/>
                         <outlet property="ttableView" destination="M48-iU-zpz" id="H4L-8N-d1I"/>
-                        <segue destination="FOv-jy-3WX" kind="show" identifier="viewPub" id="K9s-7I-auM"/>
+                        <segue destination="FOv-jy-3WX" kind="show" identifier="viewPub" id="NTf-uY-wKW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1w-2E-YL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,7 +495,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Er7-3L-74E" id="szR-fm-kXG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -589,7 +589,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ff3-Q1-bpx" id="ZsJ-G1-BTW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -646,6 +646,6 @@
         <image name="placeholder-camera-green" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K9s-7I-auM"/>
+        <segue reference="NTf-uY-wKW"/>
     </inferredMetricsTieBreakers>
 </document>
