@@ -20,7 +20,7 @@ class PubDetailController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
       
-        func didSelect(_ pub: Pub){
+       
         //Venue image
         let imageView = UIImageView()
         if let filePath = Bundle.main.path(forResource: pub.imgURL, ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
@@ -60,7 +60,7 @@ class PubDetailController: UIViewController {
         tableView.reloadData()
     
     }
-    }
+    
 
 }
 

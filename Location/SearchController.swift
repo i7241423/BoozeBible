@@ -6,11 +6,6 @@ import SwiftyJSON
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
  
-    protocol VenueDetailControllerDelegate {
-        
-        func didSelect(_ pub: Pub)
-        
-    }
     
     
     @IBOutlet weak var ttableView: UITableView!
@@ -33,14 +28,15 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "viewPub" {
-//            let vc = segue.destination as! PubDetailController
-//            vc.pub = sender as! Pub
-//        }
-//    }
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell {
+            let _ = ttableView.indexPath(for: cell)!.row
+            if segue.identifier == "viewPub" {
+                let vc = segue.destination as! PubDetailController
+                vc.pub = sender as! Pub
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return venuesArray.count
@@ -53,11 +49,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         cell?.titleLabel.text = name as? String
         
-        //performSegue(withIdentifier: "viewPub", sender: cell)
-        
-        delegate?didSelect(Pub)
-        leaveaAnimation ()
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "viewPub", sender: "cell")
        
         
         return cell!
