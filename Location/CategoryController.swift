@@ -17,7 +17,7 @@ class CategoryController: UIViewController  {
     var dataArray = [
         ["param": "cost_id", "table": "venue-costs"],
         ["param": "speciality_id", "table": "venue-specialities"],
-        ["param": "ambiance_id", "table": "venue-ambiances"],
+        ["param": "style_id", "table": "venue-styles"],
         ["param": "food_id", "table": "venue-foods"],
         ["param": "garden_id", "table": "venue-gardens"],
         ["param": "activity_id", "table": "venue-activities"],
@@ -31,7 +31,7 @@ class CategoryController: UIViewController  {
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
-    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"  ]
+    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
     var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
     
 
@@ -46,7 +46,7 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 12,
+            "venue_id": 1,
             paramName: pickerView.selectedRow(inComponent: 0)
         ]
         

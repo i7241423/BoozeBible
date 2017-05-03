@@ -41,13 +41,13 @@ class Pub: CustomStringConvertible {
         venueID = json["id"].stringValue
         
         //Categories
-        venueMusics = json["venue_musics"][0]["music_id"].stringValue
-        venueActivities = json["venue_activities"][0]["activity_id"].stringValue
-        venueGardens = json["venue_gardens"][0]["garden_id"].stringValue
-        venueFoods = json["venue_foods"][0]["food_id"].stringValue
-        venueAmbiances = json["venue_ambiances"][0]["ambiance_id"].stringValue
-        venueCosts = json["venue_costs"][0]["cost_id"].stringValue
-        venueSpecialities = json["venue_specialities"][0]["speciality_id"].stringValue
+        venueMusics = json["venue_musics"][0]["music"]["name"].stringValue
+        venueActivities = json["venue_activities"][0]["activity"]["name"].stringValue
+        venueGardens = json["venue_gardens"][0]["garden"]["name"].stringValue
+        venueFoods = json["venue_foods"][0]["food"]["name"].stringValue
+        venueAmbiances = json["venue_styles"][0]["style"]["name"].stringValue
+        venueCosts = json["venue_costs"][0]["cost"]["name"].stringValue
+        venueSpecialities = json["venue_specialities"][0]["speciality"]["name"].stringValue
         
     }
     
