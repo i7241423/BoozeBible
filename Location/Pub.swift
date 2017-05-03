@@ -17,7 +17,7 @@ class Pub: CustomStringConvertible {
     let telephone: String!
     let website: String!
     let imgURL: String!
-    let venueID: String!
+    let venueID: Int!
     
     //Categories
     let venueMusics: String!
@@ -38,7 +38,7 @@ class Pub: CustomStringConvertible {
         telephone = json["telephone"].stringValue
         website = json["website"].stringValue
         imgURL = json["imgURL"].stringValue
-        venueID = json["id"].stringValue
+        venueID = json["id"].intValue
         
         //Categories
         venueMusics = json["venue_musics"][0]["music"]["name"].stringValue
