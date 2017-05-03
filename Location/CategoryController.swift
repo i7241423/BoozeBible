@@ -35,6 +35,7 @@ class CategoryController: UIViewController  {
     var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
     
 
+    
     @IBAction func send(_ sender: Any) {
         
         guard let data = data else { return }
@@ -46,7 +47,7 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 1,
+            "venue_id": 1, // this needs to change
             paramName: pickerView.selectedRow(inComponent: 0)
         ]
         
@@ -67,6 +68,8 @@ class CategoryController: UIViewController  {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+    
 
         
     }
@@ -100,7 +103,7 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
-    
+
    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

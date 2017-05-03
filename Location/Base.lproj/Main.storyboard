@@ -512,7 +512,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Rate" id="YZL-Ks-ebo">
                             <color key="tintColor" red="0.75686274509999996" green="0.49803921569999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="acT-lW-Nvj" kind="show" id="Kw9-r7-Icq"/>
+                                <action selector="rate:" destination="FOv-jy-3WX" id="RGd-o1-X72"/>
+                                <segue destination="acT-lW-Nvj" kind="show" identifier="rate" id="Kw9-r7-Icq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

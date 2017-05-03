@@ -1,8 +1,11 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PubDetailController: UIViewController {
 
     var pub: Pub!
+    var pubs = [Pub]()
     var speciality: Speciality!
 
     @IBOutlet weak var imageView: UIImageView!
@@ -13,9 +16,36 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var website: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func rate(_ sender: Any) {
+        let pub = self.pub
+        performSegue(withIdentifier: "rate", sender: pub)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let pub = sender as? Pub else { return }
+        
+        if segue.identifier == "rate" {
+            let vc = segue.destination as! CategoryController
+            vc.pub = pub
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Alamofire.request("http://46.101.42.98/api/venues.json").responseJSON { response in
+            
+            URLCache.shared.removeAllCachedResponses()
+            guard let data = response.data else { return }
+            
+            let json = JSON(data: data)
+            
+            for pubJSON in json["data"].arrayValue {
+                let pub = Pub(json: pubJSON)
+                self.pubs.append(pub)
+            }
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
