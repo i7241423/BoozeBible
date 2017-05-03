@@ -29,7 +29,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "sub": subNameView.text!,
             "description": textView.text!,
             "addr": addrView.text!,
-            "postcode": addrView.text!,
+            "postcode": postCodeView.text!,
             "telephone": phoneView.text!,
             "website": siteView.text!,
             "lat": userLocation.coordinate.latitude,

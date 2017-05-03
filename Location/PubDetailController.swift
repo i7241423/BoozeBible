@@ -27,6 +27,8 @@ class PubDetailController: UIViewController {
             imageView.contentMode = .scaleAspectFit
             imageView.image = image
         }
+        
+        
         //let image = UIImageView(image: UIImage(named: pub.name))
         //imageView.image = image.image
 
