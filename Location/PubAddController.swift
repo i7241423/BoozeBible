@@ -7,8 +7,15 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
     var userLocation: CLLocation?
     
-    @IBAction func demo(_ sender: Any) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo: [String : Any]) {
+        guard let image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        pickedImaged.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
     
+    @IBAction func demo(_ sender: Any) {
+        
+        guard let image = pickedImaged.image else { return }
         
         view.endEditing(true)
         
@@ -24,7 +31,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "ContentType": "application/json"
         ]
         
-        let params: [String: Any] = [
+        let params: [String: String] = [
             "name": nameView.text!,
             "sub": subNameView.text!,
             "description": textView.text!,
@@ -32,36 +39,89 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             "postcode": postCodeView.text!,
             "telephone": phoneView.text!,
             "website": siteView.text!,
-            "lat": userLocation.coordinate.latitude,
-            "lng": userLocation.coordinate.longitude,
-            "imgURL": pickedImaged.image!
-
+            "lat": "\(userLocation.coordinate.latitude)",
+            "lng": "\(userLocation.coordinate.longitude)",
+            //"imgURL": pickedImaged.image!
         ]
     
+        let imageData = UIImageJPEGRepresentation(image, 0)!
+
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "upload", fileName: "upload.jpg", mimeType: "image/jpeg")
+            
+            for (key, value) in params {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+        }, to: "http://46.101.42.98/api/venues.json",
+           encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    self.submitNotice()
+                    debugPrint(response)
+                }
+            case .failure(let encodingError):
+                print("Fail")
+                print(encodingError)
+            }
+        })
         
-        Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
-            
-            guard let data = response.data else {
-                //handle error and let user know...
-                print("no data returned")
-                return
-            }
-            
-            let json = JSON(data: data)
-            
-            guard let _ = json["success"].bool else {
-                print("invalid data")
-                print(params)
-                return
-            }
-            //everything worked...
-        }
+        
+//        Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
+//            
+//            guard let data = response.data else {
+//                //handle error and let user know...
+//                print("no data returned")
+//                return
+//            }
+//            
+//            let json = JSON(data: data)
+//            
+//            guard let _ = json["success"].bool else {
+//                print("invalid data")
+//                print(params)
+//                return
+//            }
+//            //everything worked...
+//        }
         
        
         
         
-        submitNotice()
         
+        
+    }
+    
+    func upload(_ image: UIImage) {
+        
+        let parameters: [String: String] = [
+            "venue_id": "1"
+        ]
+        
+        let imageData = UIImageJPEGRepresentation(image, 0)!
+        
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "upload", fileName: "upload.jpg", mimeType: "image/jpeg")
+            
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+        }, to: "http://46.101.42.98/api/venues.json",
+           encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print("SUCCESS")
+                    debugPrint(response)
+                }
+            case .failure(let encodingError):
+                print("Fail")
+                print(encodingError)
+            }
+        })
     }
 
     
