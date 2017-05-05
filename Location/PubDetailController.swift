@@ -52,17 +52,9 @@ class PubDetailController: UIViewController {
       
        
         //Venue image
-        let imageView = UIImageView()
-        if let filePath = Bundle.main.path(forResource: pub.imgURL, ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = image
-        }
-        
-        
-        //let image = UIImageView(image: UIImage(named: pub.name))
-        //imageView.image = image.image
 
         
+        imageView.imageFromServerURL(urlString: pub.imageURL)
         
         //Venuename
         navigationItem.title = pub.name!
@@ -85,7 +77,10 @@ class PubDetailController: UIViewController {
         telephone.text = pub.telephone!
         
         //Venue Website
-        website.text = pub.website!
+        if let url = URL(string: "\(website.text = pub.website)") {
+            UIApplication.shared.open(url, options: [:])
+        }
+        
         website.numberOfLines = 0
         website.lineBreakMode = NSLineBreakMode.byWordWrapping
        
@@ -95,6 +90,7 @@ class PubDetailController: UIViewController {
     
 
 }
+
 
 
 extension PubDetailController: UITableViewDataSource, UITableViewDelegate {

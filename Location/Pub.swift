@@ -16,7 +16,7 @@ class Pub: CustomStringConvertible {
     let postcode: String!
     let telephone: String!
     let website: String!
-    let imgURL: String!
+    let imageURL: String!
     let venueID: Int!
     
     //Categories
@@ -37,7 +37,7 @@ class Pub: CustomStringConvertible {
         postcode = json["postcode"].stringValue
         telephone = json["telephone"].stringValue
         website = json["website"].stringValue
-        imgURL = json["imgURL"].stringValue
+        imageURL = "http://46.101.42.98/img/posts/" + json["image_url"].stringValue + ".jpg"
         venueID = json["id"].intValue
         
         //Categories

@@ -92,11 +92,8 @@ extension ViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             
             
-            let imageView = UIImageView()
-            if let filePath = Bundle.main.path(forResource: annotation.pub.imgURL, ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
-                imageView.contentMode = .scaleAspectFit
-                imageView.image = image
-            }
+            let imageView = UIImageView(image: UIImage(named: annotation.pub.name))
+            //imageView.imageFromServerURL(urlString: pub.imageURL)
             
             imageView.frame = CGRect( x: 0, y: 0, width: 40, height: 40)
             annotationView.leftCalloutAccessoryView = imageView
