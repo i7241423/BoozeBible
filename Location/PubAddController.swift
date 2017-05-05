@@ -63,67 +63,12 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
                 }
             case .failure(let encodingError):
                 print("Fail")
+                self.submitNotice(self.title = "Unsucessfully Added Venue!")
                 print(encodingError)
             }
         })
-        
-        
-//        Alamofire.request("http://46.101.42.98/api/venues.json", method: .post, parameters: params, headers: headers).response { [unowned self] response in
-//            
-//            guard let data = response.data else {
-//                //handle error and let user know...
-//                print("no data returned")
-//                return
-//            }
-//            
-//            let json = JSON(data: data)
-//            
-//            guard let _ = json["success"].bool else {
-//                print("invalid data")
-//                print(params)
-//                return
-//            }
-//            //everything worked...
-//        }
-        
-       
-        
-        
-        
-        
     }
     
-    func upload(_ image: UIImage) {
-        
-        let parameters: [String: String] = [
-            "venue_id": "1"
-        ]
-        
-        let imageData = UIImageJPEGRepresentation(image, 0)!
-        
-        
-        Alamofire.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(imageData, withName: "upload", fileName: "upload.jpg", mimeType: "image/jpeg")
-            
-            for (key, value) in parameters {
-                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
-            }
-            
-        }, to: "http://46.101.42.98/api/venues.json",
-           encodingCompletion: { encodingResult in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseJSON { response in
-                    print("SUCCESS")
-                    debugPrint(response)
-                }
-            case .failure(let encodingError):
-                print("Fail")
-                print(encodingError)
-            }
-        })
-    }
-
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -132,7 +77,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
     func submitNotice(){
         
-        let alertController = UIAlertController(title:"Venue Added!", message: "The venue, \(nameView.text!), was successfully saved.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Venue Added!", message: "The venue, \(nameView.text!), was successfully saved.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
