@@ -47,7 +47,7 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": pub.venueID, // this needs to change
+            "venue_id": 1, // this needs to change
             paramName: pickerView.selectedRow(inComponent: 0)
         ]
         

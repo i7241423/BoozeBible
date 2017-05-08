@@ -4,16 +4,20 @@ import SwiftyJSON
 
 
 
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
- 
+class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     @IBOutlet weak var ttableView: UITableView!
+
     
     var pub: Pub!
     var pubs = [Pub]()
     
+    
+    
     override func viewDidLoad(){
         super.viewDidLoad()
+        
         Alamofire.request("http://46.101.42.98/api/venues.json").responseJSON { response in
          
             URLCache.shared.removeAllCachedResponses()
@@ -25,9 +29,13 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 let pub = Pub(json: pubJSON)
                 self.pubs.append(pub)
             }
-            self.ttableView.reloadData()
+            
+            
+        self.ttableView.reloadData()
         }
         
+        ttableView.dataSource = self
+
     }
     
     
@@ -61,8 +69,23 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         performSegue(withIdentifier: "ViewPub", sender: pub)
     }
 
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        // When there is no text, filteredData is the same as the original data
+//        // When user has entered text into the search box
+//        // Use the filter method to iterate over all items in the data array
+//        // For each item, return true if the item should be included and false if the
+//        // item should NOT be included
+//        pub = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
+//            // If dataItem matches the searchText, return true to include it
+//            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        }
+//        
+//        ttableView.reloadData()
+//    }
     
 }
+
+
     
     
 

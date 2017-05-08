@@ -88,6 +88,8 @@ extension ViewController: MKMapViewDelegate {
             
             
             let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+            
+            
             annotationView.isEnabled = true
             annotationView.canShowCallout = true
             
