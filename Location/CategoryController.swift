@@ -27,15 +27,13 @@ class CategoryController: UIViewController  {
     var data: [String: String]?
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
-    var speciality = ["None", "Tequila", "Gin","Rum", "Whisky", "Vodka","Ale's", "Brandy", "Wine","Cocktails"]
+    var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
-    var music = ["Rock", "Pop", "Rap", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
-    
+    var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
-    
     @IBAction func send(_ sender: Any) {
         
         guard let data = data else { return }
@@ -48,7 +46,7 @@ class CategoryController: UIViewController  {
         
         let params: [String: Any] = [
             "venue_id": 1, // this needs to change
-            paramName: pickerView.selectedRow(inComponent: 0)
+            paramName: pickerView.selectedRow(inComponent: 0) + 1
         ]
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in

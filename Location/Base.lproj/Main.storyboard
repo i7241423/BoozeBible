@@ -346,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8K1-xt-Jxl" id="fdV-p9-hvb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="112.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycy-Mj-eoQ">
@@ -457,7 +457,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Er7-3L-74E" id="szR-fm-kXG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -572,7 +572,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ff3-Q1-bpx" id="ZsJ-G1-BTW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -604,7 +604,7 @@
         <scene sceneID="B4g-31-EgC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rMC-AM-VzP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="Bze-3C-svx"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="Bze-3C-svx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IOe-Tj-QWr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -828,9 +828,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="61" height="60"/>
         <image name="placeholder-camera-green" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ukh-AL-kL4"/>
+        <segue reference="ed9-H4-0Nz"/>
     </inferredMetricsTieBreakers>
 </document>
