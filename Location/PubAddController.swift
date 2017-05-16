@@ -175,6 +175,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         textView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         textView.layer.borderWidth = 1.0
         textView.layer.cornerRadius = 5
+   
         
 
     }

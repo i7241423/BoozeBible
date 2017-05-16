@@ -12,7 +12,6 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var postcode: UILabel!
-    @IBOutlet weak var telephone: UILabel!
     @IBOutlet weak var telephoneButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -35,24 +34,11 @@ class PubDetailController: UIViewController {
        
     }
     @IBAction func telephoneLink(_ sender: Any) {
-//        //UIApplication.shared.open(URL(string: "tel://\(pub.telephone)")!)
-//        guard let number = URL(string: "tele://" + pub.telephone) else { return }
-//        UIApplication.shared.open(number, options: [:], completionHandler: nil)
-//      
-//        let url = URL(string: "tele://" + pub.telephone)!
-//        if #available(iOS 10.0, *) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.openURL(url)
-//        }
+       
+        let url = "telprompt://\(pub.telephone.replacingOccurrences(of: " ", with: ""))"
         
-        if let phoneCallURL = URL(string: "tele://\(pub.telephone)") {
-            
-            let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
-                application.open(phoneCallURL, options: [:], completionHandler: nil)
-            }
-        }
+        guard let number = URL(string: url ) else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
         
     }
     
@@ -108,14 +94,12 @@ class PubDetailController: UIViewController {
       
         
         //Venue Telephone
-        telephone.text = pub.telephone!
-        
-
         telephoneButton.setTitle(pub.telephone, for: .normal)
         
         //Venue Website
-    
         websiteButton.setTitle(pub.website, for: .normal)
+        
+      
         
         tableView.reloadData()
     
