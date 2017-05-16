@@ -13,7 +13,8 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var postcode: UILabel!
     @IBOutlet weak var telephone: UILabel!
-    @IBOutlet weak var website: UILabel!
+    @IBOutlet weak var telephoneButton: UIButton!
+    @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func rate(_ sender: Any) {
@@ -21,6 +22,41 @@ class PubDetailController: UIViewController {
         performSegue(withIdentifier: "rate", sender: pub)
 
     }
+    
+    @IBAction func websiteLink(_ sender: UIButton) {
+    
+        let url = URL(string: "http://" + pub.website)!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+
+       
+    }
+    @IBAction func telephoneLink(_ sender: Any) {
+//        //UIApplication.shared.open(URL(string: "tel://\(pub.telephone)")!)
+//        guard let number = URL(string: "tele://" + pub.telephone) else { return }
+//        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+//      
+//        let url = URL(string: "tele://" + pub.telephone)!
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
+        
+        if let phoneCallURL = URL(string: "tele://\(pub.telephone)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+        
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -52,8 +88,6 @@ class PubDetailController: UIViewController {
       
        
         //Venue image
-
-        
         imageView.imageFromServerURL(urlString: pub.imageURL)
         
         //Venuename
@@ -76,14 +110,13 @@ class PubDetailController: UIViewController {
         //Venue Telephone
         telephone.text = pub.telephone!
         
-        //Venue Website
-        if let url = URL(string: "\(website.text = pub.website)") {
-            UIApplication.shared.open(url, options: [:])
-        }
+
+        telephoneButton.setTitle(pub.telephone, for: .normal)
         
-        website.numberOfLines = 0
-        website.lineBreakMode = NSLineBreakMode.byWordWrapping
-       
+        //Venue Website
+    
+        websiteButton.setTitle(pub.website, for: .normal)
+        
         tableView.reloadData()
     
     }
