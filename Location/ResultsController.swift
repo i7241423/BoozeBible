@@ -18,22 +18,6 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad(){
         super.viewDidLoad()
         
-//        Alamofire.request("http://46.101.42.98/api/venues.json").responseJSON { response in
-//         
-//            URLCache.shared.removeAllCachedResponses()
-//            guard let data = response.data else { return }
-//            
-//            let json = JSON(data: data)
-//            
-//            for pubJSON in json["data"].arrayValue {
-//                let pub = Pub(json: pubJSON)
-//                self.pubs.append(pub)
-//            }
-//            
-//            
-//        self.ttableView.reloadData()
-//        }
-        
         ttableView.dataSource = self
 
     }

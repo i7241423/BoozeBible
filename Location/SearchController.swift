@@ -8,20 +8,26 @@ class SearchController: UITableViewController {
     
     var pub: Pub!
     var pubs = [Pub]()
-    
-    let foodList: [String] = ["No","Yes","Snacks"]
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        
-    }
+        @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var pintControl: UISegmentedControl!
+
+    @IBOutlet weak var foodControl: UISegmentedControl!
+    
 
     @IBAction func FoodView(_ sender: UISegmentedControl) {
             searchRequest(value: sender.selectedSegmentIndex + 1)
     }
         
+    @IBAction func pintView(_ sender: Any) {
+    }
+    
+    @IBAction func BeerView(_ sender: UISegmentedControl) {
+        //searchRequest2(value: sender.selectedSegmentIndex + 1)
+        
+    }
     @IBOutlet weak var SearchButton: UIButton!
     
     func searchRequest(value: Int) {
@@ -51,6 +57,7 @@ class SearchController: UITableViewController {
         }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "searchResult" {
@@ -62,7 +69,7 @@ class SearchController: UITableViewController {
     
 }
 
-//http://46.101.42.98/api/venues/search?food=1 URL TO SEARCH
+
 
     
     
