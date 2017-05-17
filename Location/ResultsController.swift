@@ -18,21 +18,21 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        Alamofire.request("http://46.101.42.98/api/venues.json").responseJSON { response in
-         
-            URLCache.shared.removeAllCachedResponses()
-            guard let data = response.data else { return }
-            
-            let json = JSON(data: data)
-            
-            for pubJSON in json["data"].arrayValue {
-                let pub = Pub(json: pubJSON)
-                self.pubs.append(pub)
-            }
-            
-            
-        self.ttableView.reloadData()
-        }
+//        Alamofire.request("http://46.101.42.98/api/venues.json").responseJSON { response in
+//         
+//            URLCache.shared.removeAllCachedResponses()
+//            guard let data = response.data else { return }
+//            
+//            let json = JSON(data: data)
+//            
+//            for pubJSON in json["data"].arrayValue {
+//                let pub = Pub(json: pubJSON)
+//                self.pubs.append(pub)
+//            }
+//            
+//            
+//        self.ttableView.reloadData()
+//        }
         
         ttableView.dataSource = self
 
@@ -69,19 +69,6 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegue(withIdentifier: "ViewPub", sender: pub)
     }
 
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        // When there is no text, filteredData is the same as the original data
-//        // When user has entered text into the search box
-//        // Use the filter method to iterate over all items in the data array
-//        // For each item, return true if the item should be included and false if the
-//        // item should NOT be included
-//        pub = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
-//            // If dataItem matches the searchText, return true to include it
-//            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-//        }
-//        
-//        ttableView.reloadData()
-//    }
     
 }
 

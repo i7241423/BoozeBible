@@ -12,7 +12,6 @@ class SearchController: UITableViewController {
     let foodList: [String] = ["No","Yes","Snacks"]
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var textLabel: UILabel!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -20,22 +19,47 @@ class SearchController: UITableViewController {
     }
 
     @IBAction func FoodView(_ sender: UISegmentedControl) {
-        
-            switch segmentedControl.selectedSegmentIndex
-            {
-            case 0:
-                textLabel.text = foodList[0]
-                
-            case 1:
-                textLabel.text = foodList[1]
-            case 2:
-                textLabel.text = foodList[2]
-            default:
-                break; 
-            }
-        }
+            searchRequest(value: sender.selectedSegmentIndex + 1)
+    }
         
     @IBOutlet weak var SearchButton: UIButton!
+    
+    func searchRequest(value: Int) {
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "ContentType": "application/json"
+        ]
+        
+        Alamofire.request("http://46.101.42.98/api/venues/search?food=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+            URLCache.shared.removeAllCachedResponses()
+            guard let data = response.data else { return }
+            
+            let json = JSON(data: data)
+            print(json)
+            
+            self.pubs.removeAll()
+            
+            for pubJSON in json["venues"].arrayValue {
+                let pub = Pub(json: pubJSON)
+                self.pubs.append(pub)
+                
+                
+            }
+            print(self.pubs.count)
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "searchResult" {
+            let vc = segue.destination as! ResultsController
+            vc.pubs = pubs
+        }
+        
+    }
+    
 }
 
 //http://46.101.42.98/api/venues/search?food=1 URL TO SEARCH

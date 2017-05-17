@@ -97,7 +97,7 @@ class PubDetailController: UIViewController {
         telephoneButton.setTitle(pub.telephone, for: .normal)
         
         //Venue Website
-        websiteButton.setTitle(pub.website, for: .normal)
+        websiteButton.setTitle(pub.name + " Website", for: .normal)
         
       
         
