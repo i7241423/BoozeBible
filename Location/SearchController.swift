@@ -12,22 +12,13 @@ class SearchController: UITableViewController {
     
         @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var pintControl: UISegmentedControl!
-
-    @IBOutlet weak var foodControl: UISegmentedControl!
     
 
     @IBAction func FoodView(_ sender: UISegmentedControl) {
             searchRequest(value: sender.selectedSegmentIndex + 1)
     }
         
-    @IBAction func pintView(_ sender: Any) {
-    }
-    
-    @IBAction func BeerView(_ sender: UISegmentedControl) {
-        //searchRequest2(value: sender.selectedSegmentIndex + 1)
-        
-    }
+   
     @IBOutlet weak var SearchButton: UIButton!
     
     func searchRequest(value: Int) {
