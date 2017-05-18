@@ -11,9 +11,8 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var pickerSource: [String]!
 
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var images = ["1","2","3","4","5","6","blank","7"]
+    var images = ["1","2","3","4","5","6"," ","7"]
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
@@ -22,26 +21,32 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
-    
 
-
-    @IBAction func FoodView(_ sender: UISegmentedControl) {
-            searchRequest(value: sender.selectedSegmentIndex + 1)
-    }
-    
-
+    var searchCat = ["cost", "speciality", "ambiance", "food", "garden", "activity", "music"]
+//
+//    var dataArray = [
+//        ["table": "cost"],
+//        ["table": "speciality"],
+//        ["table": "ambiance"],
+//        ["table": "food"],
+//        ["table": "garden"],
+//        ["table": "activity"],
+//        ["table": "music"]
+//    ]
+//    
    
     @IBOutlet weak var SearchButton: UIButton!
     
-     func searchRequest(value: Int) {
+    func searchRequest(value: Int) {
         
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
+     
         
-        Alamofire.request("http://46.101.42.98/api/venues/search?food=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/api/venues/search?garden=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
@@ -77,7 +82,9 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         pickerView.delegate = self
         
     }
+   
     
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -93,14 +100,14 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? SearchCollectionViewCell
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? SearchCollectionViewCell
         cell?.imageView.image = UIImage(named: images[indexPath.row])
         return cell! 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print ("selected row is" , indexPath.row )
+        
         if indexPath.row == 0 {
             pickerSource = prices
         } else if indexPath.row == 1 {
@@ -116,11 +123,15 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         } else if indexPath.row == 7 {
             pickerSource = music
         } else {
-            pickerSource = prices
+            
         }
-        
         pickerView.reloadAllComponents()
+        
+        print ("selected row is" , indexPath.row)
+        
+        searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
     }
+    
 }
 
 extension SearchController: UIPickerViewDelegate, UIPickerViewDataSource {

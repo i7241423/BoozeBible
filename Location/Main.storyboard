@@ -948,7 +948,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhA-yu-4Qj">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.8644504677" green="0.18523361939999999" blue="0.79870801010000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -958,44 +957,36 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to select the categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x41-4k-gNp">
-                                        <rect key="frame" x="16" y="402" width="343" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHo-H8-fqu">
-                                        <rect key="frame" x="0.0" y="433" width="375" height="110"/>
+                                        <rect key="frame" x="0.0" y="419" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="dYg-TH-PPq" id="SgN-B5-ABe"/>
                                             <outlet property="delegate" destination="dYg-TH-PPq" id="rn0-j4-Pi6"/>
                                         </connections>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV6-fC-l3e">
+                                        <rect key="frame" x="0.0" y="570" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.75686274509999996" green="0.49803921569999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.41960784309999999" green="0.74901960779999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Y7z-5e-Boo" kind="show" identifier="searchResult" id="7ev-ML-eLV"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to select the categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x41-4k-gNp">
+                                        <rect key="frame" x="16" y="388" width="343" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZnL-Ry-pTl">
-                                <rect key="frame" x="16" y="582" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title="Thirdd"/>
-                                </segments>
-                                <connections>
-                                    <action selector="FoodView:" destination="dYg-TH-PPq" eventType="valueChanged" id="UCl-O7-YL6"/>
-                                </connections>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV6-fC-l3e">
-                                <rect key="frame" x="291" y="544" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="Y7z-5e-Boo" kind="show" identifier="searchResult" id="7ev-ML-eLV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.41960784309999999" green="0.74901960779999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1006,7 +997,6 @@
                         <outlet property="SearchButton" destination="tV6-fC-l3e" id="OO7-ya-xX8"/>
                         <outlet property="pickerView" destination="HHo-H8-fqu" id="aU5-bu-m18"/>
                         <outlet property="searchCollectionView" destination="kTb-v0-Uwg" id="Imf-Et-vAC"/>
-                        <outlet property="segmentedControl" destination="ZnL-Ry-pTl" id="ySt-lh-GG3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMf-b5-FAl" userLabel="First Responder" sceneMemberID="firstResponder"/>

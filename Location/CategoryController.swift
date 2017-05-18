@@ -126,6 +126,8 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         pickerView.reloadAllComponents()
         
         data = dataArray[indexPath.row]
+        
+        self.view.endEditing(true)
     }
     
 }
