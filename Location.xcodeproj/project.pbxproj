@@ -17,6 +17,7 @@
 		421CEC121EC47C95005C034D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421CEC111EC47C95005C034D /* SearchController.swift */; };
 		4226E6FA1EA79F4D00EA26CC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226E6F91EA79F4D00EA26CC /* CustomTableViewCell.swift */; };
 		4226E6FC1EA79F9300EA26CC /* ResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226E6FB1EA79F9300EA26CC /* ResultsController.swift */; };
+		4243D4201ECDC7E600EE26B1 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4243D41F1ECDC7E600EE26B1 /* SearchCollectionViewCell.swift */; };
 		424831681DF6DDCA0052D31E /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424831661DF6DDCA0052D31E /* Pub.swift */; };
 		4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248316A1DF6E44D0052D31E /* PubDetailController.swift */; };
 		425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D11F21E5C70E30045B44F /* CategoryController.swift */; };
@@ -41,6 +42,7 @@
 		421CEC111EC47C95005C034D /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		4226E6F91EA79F4D00EA26CC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		4226E6FB1EA79F9300EA26CC /* ResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsController.swift; sourceTree = "<group>"; };
+		4243D41F1ECDC7E600EE26B1 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		424831661DF6DDCA0052D31E /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		4248316A1DF6E44D0052D31E /* PubDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDetailController.swift; sourceTree = "<group>"; };
 		425D11F21E5C70E30045B44F /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				425D11F21E5C70E30045B44F /* CategoryController.swift */,
 				274D07EB1DD0D01A002D86C9 /* Location.gpx */,
 				429664661ECC6E7D0042DE9A /* Main.storyboard */,
+				4243D41F1ECDC7E600EE26B1 /* SearchCollectionViewCell.swift */,
 				274D07DF1DD0CAAE002D86C9 /* LaunchScreen.storyboard */,
 				274D07E21DD0CAAE002D86C9 /* Info.plist */,
 				4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */,
@@ -263,6 +266,7 @@
 				274D07D71DD0CAAE002D86C9 /* AppDelegate.swift in Sources */,
 				4226E6FC1EA79F9300EA26CC /* ResultsController.swift in Sources */,
 				42171BD81E829AA500FE950D /* PubAddController.swift in Sources */,
+				4243D4201ECDC7E600EE26B1 /* SearchCollectionViewCell.swift in Sources */,
 				425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

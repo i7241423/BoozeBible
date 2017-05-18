@@ -4,17 +4,16 @@ import SwiftyJSON
 
 
 
-class SearchController: UIViewController {
+class SearchController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var pub: Pub!
     var pubs = [Pub]()
     var pickerSource: [String]!
 
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var pickView: UIPickerView!
+
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var images = ["1","2","3","4","5","6","blank","7"]
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
@@ -24,37 +23,25 @@ class SearchController: UIViewController {
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
     
-    var dataArray = [
-        ["table": "cost"],
-         ["table": "speciality"],
-          ["table": "style"],
-           ["table": "food"],
-            ["table": "garden"],
-             ["table": "activity"],
-              ["table": "music"],
-       
-    ]
-    
-    var data: [String: String]?
 
 
     @IBAction func FoodView(_ sender: UISegmentedControl) {
-            //searchRequest(value: sender.selectedSegmentIndex + 1)
+            searchRequest(value: sender.selectedSegmentIndex + 1)
     }
     
-    @IBAction func send(_ sender: Any) {
+
+   
+    @IBOutlet weak var SearchButton: UIButton!
+    
+     func searchRequest(value: Int) {
         
-        let value = pickView.selectedRow(inComponent: 0) + 1
-        
-        guard let data = data else { return }
-        guard let tableName = data["table"] else { return }
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
         
-        Alamofire.request("http://46.101.42.98/api/venues/search?\(tableName)=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/api/venues/search?food=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
@@ -72,52 +59,22 @@ class SearchController: UIViewController {
             print(self.pubs.count)
             
         }
-    
-    
     }
-
-
-   
-    @IBOutlet weak var SearchButton: UIButton!
     
-//     func searchRequest(value: Int) {
-//        
-//        
-//        let headers: HTTPHeaders = [
-//            "Accept": "application/json",
-//            "ContentType": "application/json"
-//        ]
-//        
-//        Alamofire.request("http://46.101.42.98/api/venues/search?food=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
-//            URLCache.shared.removeAllCachedResponses()
-//            guard let data = response.data else { return }
-//            
-//            let json = JSON(data: data)
-//            print(json)
-//            
-//            self.pubs.removeAll()
-//            
-//            for pubJSON in json["venues"].arrayValue {
-//                let pub = Pub(json: pubJSON)
-//                self.pubs.append(pub)
-//                
-//                
-//            }
-//            print(self.pubs.count)
-//            
-//        }
-//    }
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var searchCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchCollectionView.delegate = self
+        self.searchCollectionView.dataSource = self
+        
         pickerSource = prices
         
-        pickView.dataSource = self
-        pickView.delegate = self
-        
-        tableView.delegate = self
-        tableView.dataSource = self
- 
+        pickerView.dataSource = self
+        pickerView.delegate = self
         
     }
     
@@ -131,40 +88,19 @@ class SearchController: UIViewController {
         
     }
     
-}
-
-extension SearchController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? SearchCollectionViewCell
         
-        if indexPath.row == 0 {
-            cell.textLabel?.text = "Cost of pint"
-        } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Speciality"
-        } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Ambiance"
-        } else if indexPath.row == 3 {
-            cell.textLabel?.text = "Food"
-        } else if indexPath.row == 4 {
-            cell.textLabel?.text = "Beer garden or smoking area"
-        } else if indexPath.row == 5 {
-            cell.textLabel?.text = "Additional activities"
-        } else if indexPath.row == 6 {
-            cell.textLabel?.text = "Music?"
-        } else {
-            cell.textLabel?.text = "Cost of pint"
-        }
-        return cell
+        cell?.imageView.image = UIImage(named: images[indexPath.row])
+        return cell! 
     }
     
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("selected row is" , indexPath.row )
         if indexPath.row == 0 {
             pickerSource = prices
         } else if indexPath.row == 1 {
@@ -177,17 +113,14 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             pickerSource = beerGarden
         } else if indexPath.row == 5 {
             pickerSource = activities
-        } else if indexPath.row == 6 {
+        } else if indexPath.row == 7 {
             pickerSource = music
         } else {
             pickerSource = prices
         }
         
-        pickView.reloadAllComponents()
-        
-        //data = dataArray[indexPath.row]
+        pickerView.reloadAllComponents()
     }
-    
 }
 
 extension SearchController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -206,3 +139,5 @@ extension SearchController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     
 }
+
+
