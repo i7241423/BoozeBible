@@ -19,6 +19,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     
     //Results Controller
+    @IBOutlet weak var venueImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

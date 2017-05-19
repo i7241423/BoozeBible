@@ -20,7 +20,13 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         
         ttableView.dataSource = self
+        
+        
+        let logo = UIImage(named: "logo-top")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
 
+        
     }
     
     
@@ -46,6 +52,9 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
         let pub = pubs[indexPath.row]
         
         cell?.titleLabel.text = pub.name
+        
+        cell?.venueImage.imageFromServerURL(urlString: pub.imageURL)
+
         
         return cell!
         

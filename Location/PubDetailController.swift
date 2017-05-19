@@ -7,7 +7,7 @@ class PubDetailController: UIViewController {
     var pub: Pub!
     var pubs = [Pub]()
 
-    var images = ["1","2","3","4","5","6","7"]
+    var images = ["venue-cost","venue-speciality","venue-ambiance","venue-food","venue-garden","venue-activity","venue-music"]
     
 
     @IBOutlet weak var imageView: UIImageView!
@@ -140,7 +140,7 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell?.categoryLabel.text = pub.venueCosts
         }
-        
+         print(pub.venueCosts)
         return cell!
         
        //    cell.textLabel?.text = pub.name

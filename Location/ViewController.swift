@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logo = UIImage(named: "logo-top")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -89,15 +93,15 @@ extension ViewController: MKMapViewDelegate {
         if let annotation = annotation as? PubAnnotation {
             
             
+            
             let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
             
             
             annotationView.isEnabled = true
             annotationView.canShowCallout = true
-            annotationView.image = UIImage(named: "mappin")
             
-            
-            
+            //annotationView.image = UIImage(named: "mappin")
+       
             let imageView = UIImageView(image: UIImage())
             imageView.imageFromServerURL(urlString: annotation.pub.imageURL)
             
@@ -114,6 +118,8 @@ extension ViewController: MKMapViewDelegate {
         return nil
         
     }
+    
+
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         

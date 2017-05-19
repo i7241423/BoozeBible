@@ -9,10 +9,10 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var pub: Pub!
     var pubs = [Pub]()
     var pickerSource: [String]!
-
+    var selectedRow: Int!
 
     
-    var images = ["1","2","3","4","5","6"," ","7"]
+    var images = ["cost-search","speciality-search","ambiance-search","food-search","garden-search","activity-search"," ","music-search"]
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
@@ -22,19 +22,8 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
-    var searchCat = ["cost", "speciality", "ambiance", "food", "garden", "activity", "music"]
-//
-//    var dataArray = [
-//        ["table": "cost"],
-//        ["table": "speciality"],
-//        ["table": "ambiance"],
-//        ["table": "food"],
-//        ["table": "garden"],
-//        ["table": "activity"],
-//        ["table": "music"]
-//    ]
-//    
-   
+    var name = ["cost", "speciality", "style", "food", "garden", "activity", "none", "music"]
+
     @IBOutlet weak var SearchButton: UIButton!
     
     func searchRequest(value: Int) {
@@ -46,7 +35,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         ]
      
         
-        Alamofire.request("http://46.101.42.98/api/venues/search?garden=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
+        Alamofire.request("http://46.101.42.98/api/venues/search?\(name[selectedRow])=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
             guard let data = response.data else { return }
             
@@ -61,6 +50,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
                 
                 
             }
+            self.performSegue(withIdentifier: "searchResult", sender: nil)
             print(self.pubs.count)
             
         }
@@ -80,6 +70,12 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        
+        let logo = UIImage(named: "logo-top")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+
         
     }
    
@@ -107,7 +103,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectedRow = indexPath.row
         if indexPath.row == 0 {
             pickerSource = prices
         } else if indexPath.row == 1 {
@@ -129,6 +125,11 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         print ("selected row is" , indexPath.row)
         
+        
+    }
+    
+
+    @IBAction func searchButton(_ sender: UIButton) {
         searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
     }
     

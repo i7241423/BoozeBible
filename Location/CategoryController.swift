@@ -14,7 +14,7 @@ class CategoryController: UIViewController  {
     var pickerSource: [String]!
     var pub: Pub!
     
-    var images = ["1","2","3","4","5","6","7"]
+    var images = ["venue-cost","venue-speciality","venue-ambiance","venue-food","venue-garden","venue-activity","venue-music"]
     
     var dataArray = [
         ["param": "cost_id", "table": "venue-costs"],

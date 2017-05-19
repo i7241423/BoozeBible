@@ -234,6 +234,8 @@
                             <constraint firstAttribute="trailing" secondItem="dk1-bw-I2b" secondAttribute="trailing" id="qAZ-Yo-pPO"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
@@ -343,33 +345,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M48-iU-zpz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="235" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M48-iU-zpz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="113" id="8K1-xt-Jxl" customClass="CustomTableViewCell" customModule="Location" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="113"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="235" id="8K1-xt-Jxl" customClass="CustomTableViewCell" customModule="Location" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8K1-xt-Jxl" id="fdV-p9-hvb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="112.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZk-ia-1RN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycy-Mj-eoQ">
-                                                    <rect key="frame" x="8" y="40" width="326" height="33"/>
+                                                    <rect key="frame" x="0.0" y="182" width="372" height="44"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="top" secondItem="fdV-p9-hvb" secondAttribute="topMargin" constant="32" id="ETr-dw-TdO"/>
-                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="trailing" secondItem="fdV-p9-hvb" secondAttribute="trailingMargin" id="Oa5-pD-dsc"/>
-                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="leading" secondItem="fdV-p9-hvb" secondAttribute="leadingMargin" id="euK-vc-SUA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ycy-Mj-eoQ" secondAttribute="bottom" constant="31" id="ezI-7a-OTU"/>
+                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="top" secondItem="fdV-p9-hvb" secondAttribute="topMargin" constant="174" id="ETr-dw-TdO"/>
+                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="trailing" secondItem="fdV-p9-hvb" secondAttribute="trailingMargin" constant="5" id="Oa5-pD-dsc"/>
+                                                <constraint firstItem="ycy-Mj-eoQ" firstAttribute="leading" secondItem="fdV-p9-hvb" secondAttribute="leadingMargin" constant="-8" id="euK-vc-SUA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ycy-Mj-eoQ" secondAttribute="bottom" id="ezI-7a-OTU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="ycy-Mj-eoQ" id="2Xi-Fj-h6i"/>
+                                            <outlet property="venueImage" destination="OZk-ia-1RN" id="ObS-GD-kai"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -404,7 +411,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3756" y="1502"/>
+            <point key="canvasLocation" x="3756" y="1501.7991004497753"/>
         </scene>
         <!--Title-->
         <scene sceneID="JNB-1d-sel">
@@ -962,7 +969,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="5" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kTb-v0-Uwg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="394"/>
+                                        <rect key="frame" x="0.0" y="20" width="375" height="374"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="mOi-pV-aMZ">
@@ -1003,19 +1010,20 @@
                                         <rect key="frame" x="0.0" y="570" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.49803921569999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Submit">
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Search ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.41960784309999999" green="0.74901960779999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Y7z-5e-Boo" kind="show" identifier="searchResult" id="7ev-ML-eLV"/>
+                                            <action selector="searchButton:" destination="dYg-TH-PPq" eventType="touchUpInside" id="Ivx-HX-b2J"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to select the categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x41-4k-gNp">
-                                        <rect key="frame" x="16" y="388" width="343" height="23"/>
+                                        <rect key="frame" x="16" y="402" width="343" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.74901960779999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1031,11 +1039,12 @@
                         <outlet property="SearchButton" destination="tV6-fC-l3e" id="OO7-ya-xX8"/>
                         <outlet property="pickerView" destination="HHo-H8-fqu" id="aU5-bu-m18"/>
                         <outlet property="searchCollectionView" destination="kTb-v0-Uwg" id="Imf-Et-vAC"/>
+                        <segue destination="Y7z-5e-Boo" kind="show" identifier="searchResult" id="kvt-FY-pyi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMf-b5-FAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="1502"/>
+            <point key="canvasLocation" x="2816.8000000000002" y="1501.7991004497753"/>
         </scene>
     </scenes>
     <resources>
@@ -1043,6 +1052,6 @@
         <image name="placeholder-camera-green" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ed9-H4-0Nz"/>
+        <segue reference="Ukh-AL-kL4"/>
     </inferredMetricsTieBreakers>
 </document>
