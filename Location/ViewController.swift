@@ -82,6 +82,8 @@ extension ViewController: MKMapViewDelegate {
     
         if annotation is MKUserLocation { return nil }
         
+        
+        
         let identifier = "Pub"
         
         if let annotation = annotation as? PubAnnotation {
@@ -92,6 +94,8 @@ extension ViewController: MKMapViewDelegate {
             
             annotationView.isEnabled = true
             annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "mappin")
+            
             
             
             let imageView = UIImageView(image: UIImage())
@@ -101,6 +105,7 @@ extension ViewController: MKMapViewDelegate {
             annotationView.leftCalloutAccessoryView = imageView
             
             annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
             
             return annotationView
             

@@ -7,7 +7,9 @@ class PubDetailController: UIViewController {
     var pub: Pub!
     var pubs = [Pub]()
 
-    @IBOutlet weak var categoryLabel: UILabel!
+    var images = ["1","2","3","4","5","6","7"]
+    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -118,6 +120,8 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell
+        
+        cell?.iconView.image = UIImage(named: images[indexPath.row])
         
         if indexPath.row == 0 {
             cell?.categoryLabel.text = pub.venueCosts

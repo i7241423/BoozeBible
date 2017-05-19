@@ -9,9 +9,16 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
+    //Category Controller
+    @IBOutlet weak var rateTitleLabel: UILabel!
+    @IBOutlet weak var rateImageView: UIImageView!
+    
+    //Pub Detail Controller
+    @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    //Results Controller
     @IBOutlet var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

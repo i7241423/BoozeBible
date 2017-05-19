@@ -457,10 +457,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ha-gZ-Htn">
+                                                    <rect key="frame" x="8" y="5" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryLabel" destination="P6t-Qf-qGi" id="ZdM-S1-YSO"/>
+                                            <outlet property="iconView" destination="3Ha-gZ-Htn" id="H2s-cq-tu8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -538,7 +543,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="address" destination="aCM-Ae-Lyz" id="dhQ-WC-KNk"/>
-                        <outlet property="imageView" destination="6gN-1L-bFy" id="pV3-8e-dy4"/>
+                        <outlet property="imageView" destination="6gN-1L-bFy" id="7lF-Tt-qPQ"/>
                         <outlet property="info" destination="dWM-9U-Pre" id="7qs-YO-8be"/>
                         <outlet property="postcode" destination="9fM-eH-Xoj" id="1Yr-9h-q4a"/>
                         <outlet property="tableView" destination="eui-hO-E61" id="5d4-BQ-Sej"/>
@@ -575,13 +580,30 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ff3-Q1-bpx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ff3-Q1-bpx" customClass="CustomTableViewCell" customModule="Location" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ff3-Q1-bpx" id="ZsJ-G1-BTW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WyM-dv-57C">
+                                                    <rect key="frame" x="8" y="0.0" width="36" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRk-3d-O9i">
+                                                    <rect key="frame" x="52" y="11" width="302" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="rateImageView" destination="WyM-dv-57C" id="lxk-lT-I0J"/>
+                                            <outlet property="rateTitleLabel" destination="TRk-3d-O9i" id="4Xk-5Z-H75"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -605,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeO-Fc-kEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5638" y="1202"/>
+            <point key="canvasLocation" x="5637.6000000000004" y="1201.3493253373315"/>
         </scene>
         <!--Map-->
         <scene sceneID="B4g-31-EgC">
@@ -1021,6 +1043,6 @@
         <image name="placeholder-camera-green" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ukh-AL-kL4"/>
+        <segue reference="ed9-H4-0Nz"/>
     </inferredMetricsTieBreakers>
 </document>

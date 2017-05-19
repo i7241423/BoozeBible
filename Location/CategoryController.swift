@@ -14,6 +14,8 @@ class CategoryController: UIViewController  {
     var pickerSource: [String]!
     var pub: Pub!
     
+    var images = ["1","2","3","4","5","6","7"]
+    
     var dataArray = [
         ["param": "cost_id", "table": "venue-costs"],
         ["param": "speciality_id", "table": "venue-specialities"],
@@ -80,30 +82,31 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell
+        
+        cell?.rateImageView.image = UIImage(named: images[indexPath.row])
 
         if indexPath.row == 0 {
-            cell.textLabel?.text = "Cost of pint? (Cheapest)"
+            cell?.rateTitleLabel.text = "Cost of pint? (Cheapest)"
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Drinks speciality?"
+            cell?.rateTitleLabel.text = "Drinks speciality?"
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Ambiance?"
+            cell?.rateTitleLabel.text = "Ambiance?"
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = "Food?"
+            cell?.rateTitleLabel.text = "Food?"
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = "Beer garden or smoking area?"
+            cell?.rateTitleLabel.text = "Beer garden or smoking area?"
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = "Additional activities?"
+            cell?.rateTitleLabel.text = "Additional activities?"
         } else if indexPath.row == 6 {
-           cell.textLabel?.text = "Music?"
+           cell?.rateTitleLabel.text = "Music?"
         } else {
-            cell.textLabel?.text = "Cost of pint? (Cheapest)"
+            cell?.rateTitleLabel.text = "Cost of pint? (Cheapest)"
         }
-        return cell
+        return cell!
+        //cell.textLabel?.text
     }
 
-   
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             pickerSource = prices

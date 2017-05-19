@@ -34,6 +34,8 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pubs.count
     }
