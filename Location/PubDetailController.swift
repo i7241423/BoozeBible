@@ -6,8 +6,8 @@ class PubDetailController: UIViewController {
 
     var pub: Pub!
     var pubs = [Pub]()
-    var speciality: Speciality!
 
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -117,26 +117,29 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = pub.venueCosts
+            cell?.categoryLabel.text = pub.venueCosts
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = pub.venueSpecialities
+            cell?.categoryLabel.text = pub.venueSpecialities
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = pub.venueAmbiances
+            cell?.categoryLabel.text = pub.venueAmbiances
         } else if indexPath.row == 3 {
-            cell.textLabel?.text = pub.venueFoods
+            cell?.categoryLabel.text = pub.venueFoods
         } else if indexPath.row == 4 {
-            cell.textLabel?.text = pub.venueGardens
+            cell?.categoryLabel.text = pub.venueGardens
         } else if indexPath.row == 5 {
-            cell.textLabel?.text = pub.venueActivities
+            cell?.categoryLabel.text = pub.venueActivities
         } else if indexPath.row == 6 {
-            cell.textLabel?.text = pub.venueMusics
+            cell?.categoryLabel.text = pub.venueMusics
         } else {
-            cell.textLabel?.text = pub.venueCosts
+            cell?.categoryLabel.text = pub.venueCosts
         }
-        return cell
+        
+        return cell!
+        
+       //    cell.textLabel?.text = pub.name
     }
     
 }

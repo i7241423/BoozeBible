@@ -10,6 +10,7 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet var titleLabel: UILabel!
     override func awakeFromNib() {
