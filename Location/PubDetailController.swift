@@ -9,6 +9,9 @@ class PubDetailController: UIViewController {
 
     var images = ["venue-cost","venue-speciality","venue-ambiance","venue-food","venue-garden","venue-activity","venue-music"]
     
+    var name = ["Cost of a Pint", "Speciality", "Ambiance", "Food", "Outside area", "Activity", "Music"]
+    
+    @IBOutlet weak var venueTitle: UILabel!
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
@@ -81,9 +84,12 @@ class PubDetailController: UIViewController {
         //Venue image
         imageView.imageFromServerURL(urlString: pub.imageURL)
         
-        //Venuename
-        navigationItem.title = pub.name!
+        //Title Venue Name
+        venueTitle.text = pub.name!
        
+        //Venue Name
+        navigationItem.title = pub.name!
+        
         //Venue Description
         info.text = pub.desc!
         info.numberOfLines = 0
@@ -129,7 +135,7 @@ extension PubDetailController: UICollectionViewDataSource, UICollectionViewDeleg
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PubDetailCollectionViewCell
         cell?.facilityImage.image = UIImage(named: images[indexPath.row])
-        
+        cell?.facilityLabel.text = name[indexPath.row]
         if indexPath.row == 0 {
             cell?.facilityText.text = pub.venueCosts
         } else if indexPath.row == 1 {
