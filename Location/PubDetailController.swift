@@ -9,7 +9,7 @@ class PubDetailController: UIViewController {
 
     var images = ["venue-cost","venue-speciality","venue-ambiance","venue-food","venue-garden","venue-activity","venue-music"]
     
-
+    @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -94,16 +94,22 @@ class PubDetailController: UIViewController {
         //Venue postcode
         postcode.text = pub.postcode!
       
+        //Venue Description
+        hours.text = pub.hours!
+        hours.numberOfLines = 0
+        hours.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
         
         //Venue Telephone
         telephoneButton.setTitle(pub.telephone, for: .normal)
         
         //Venue Website
-        websiteButton.setTitle(pub.name + " Website", for: .normal)
+        websiteButton.setTitle(pub.name + "'s Website", for: .normal)
         
       
         
         tableView.reloadData()
+        
     
     }
     
@@ -120,7 +126,6 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell
-        
         cell?.iconView.image = UIImage(named: images[indexPath.row])
         
         if indexPath.row == 0 {
@@ -140,7 +145,8 @@ extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell?.categoryLabel.text = pub.venueCosts
         }
-         print(pub.venueCosts)
+        
+        
         return cell!
         
        //    cell.textLabel?.text = pub.name

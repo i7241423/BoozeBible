@@ -21,6 +21,7 @@
 		424831681DF6DDCA0052D31E /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424831661DF6DDCA0052D31E /* Pub.swift */; };
 		4248316B1DF6E44D0052D31E /* PubDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248316A1DF6E44D0052D31E /* PubDetailController.swift */; };
 		425D11F31E5C70E30045B44F /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D11F21E5C70E30045B44F /* CategoryController.swift */; };
+		42711B301ED3302600D4E5B0 /* Open Sans in Resources */ = {isa = PBXBuildFile; fileRef = 42711B2F1ED3302600D4E5B0 /* Open Sans */; };
 		4275D4551E66E69700EBB8CF /* PubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4541E66E69700EBB8CF /* PubAnnotation.swift */; };
 		4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */; };
 		429664671ECC6E7D0042DE9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429664661ECC6E7D0042DE9A /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		424831661DF6DDCA0052D31E /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		4248316A1DF6E44D0052D31E /* PubDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDetailController.swift; sourceTree = "<group>"; };
 		425D11F21E5C70E30045B44F /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		42711B2F1ED3302600D4E5B0 /* Open Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Open Sans"; sourceTree = "<group>"; };
 		4275D4541E66E69700EBB8CF /* PubAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubAnnotation.swift; sourceTree = "<group>"; };
 		4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerTableViewCell.swift; sourceTree = "<group>"; };
 		429664661ECC6E7D0042DE9A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				274D07E21DD0CAAE002D86C9 /* Info.plist */,
 				4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */,
 				42EE478C1EBCB2FF00ED3A99 /* UIImageView+Extension.swift */,
+				42711B2F1ED3302600D4E5B0 /* Open Sans */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42711B301ED3302600D4E5B0 /* Open Sans in Resources */,
 				429664671ECC6E7D0042DE9A /* Main.storyboard in Resources */,
 				421CEC101EC324AC005C034D /* Assets.xcassets in Resources */,
 				274D07E11DD0CAAE002D86C9 /* LaunchScreen.storyboard in Resources */,

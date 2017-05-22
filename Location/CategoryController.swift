@@ -47,15 +47,24 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 1, // this needs to change
+            "venue_id": 66, // this needs to change
             paramName: pickerView.selectedRow(inComponent: 0) + 1
         ]
         
         Alamofire.request("http://46.101.42.98/\(tableName)/add", method: .post, parameters: params, headers: headers).response { [unowned self] response in
             print("sent")
+            self.submitNotice()
             print(params)
         }
         
+    }
+    
+    func submitNotice(){
+        
+        let alertController = UIAlertController(title: "Yippeeee", message: "The rating was successfully submitted.", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 
@@ -69,8 +78,6 @@ class CategoryController: UIViewController  {
         tableView.delegate = self
         tableView.dataSource = self
         
-    
-
         
     }
 }
