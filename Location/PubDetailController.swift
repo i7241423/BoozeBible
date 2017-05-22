@@ -16,7 +16,9 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var postcode: UILabel!
     @IBOutlet weak var telephoneButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+
+    //collection view
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func rate(_ sender: Any) {
         let pub = self.pub
@@ -71,8 +73,9 @@ class PubDetailController: UIViewController {
             }
         }
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
       
        
         //Venue image
@@ -107,8 +110,7 @@ class PubDetailController: UIViewController {
         websiteButton.setTitle(pub.name + "'s Website", for: .normal)
         
       
-        
-        tableView.reloadData()
+        collectionView.reloadData()
         
     
     }
@@ -118,38 +120,38 @@ class PubDetailController: UIViewController {
 
 
 
-extension PubDetailController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PubDetailController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell
-        cell?.iconView.image = UIImage(named: images[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PubDetailCollectionViewCell
+        cell?.facilityImage.image = UIImage(named: images[indexPath.row])
         
         if indexPath.row == 0 {
-            cell?.categoryLabel.text = pub.venueCosts
+            cell?.facilityText.text = pub.venueCosts
         } else if indexPath.row == 1 {
-            cell?.categoryLabel.text = pub.venueSpecialities
+            cell?.facilityText.text = pub.venueSpecialities
         } else if indexPath.row == 2 {
-            cell?.categoryLabel.text = pub.venueAmbiances
+            cell?.facilityText.text = pub.venueAmbiances
         } else if indexPath.row == 3 {
-            cell?.categoryLabel.text = pub.venueFoods
+            cell?.facilityText.text = pub.venueFoods
         } else if indexPath.row == 4 {
-            cell?.categoryLabel.text = pub.venueGardens
+            cell?.facilityText.text = pub.venueGardens
         } else if indexPath.row == 5 {
-            cell?.categoryLabel.text = pub.venueActivities
+            cell?.facilityText.text = pub.venueActivities
         } else if indexPath.row == 6 {
-            cell?.categoryLabel.text = pub.venueMusics
+            cell?.facilityText.text = pub.venueMusics
         } else {
-            cell?.categoryLabel.text = pub.venueCosts
+            cell?.facilityText.text = pub.venueCosts
         }
         
         
         return cell!
         
-       //    cell.textLabel?.text = pub.name
+        //    cell.textLabel?.text = pub.name
     }
     
 }
