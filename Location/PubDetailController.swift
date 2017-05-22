@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MapKit
 
 class PubDetailController: UIViewController {
 
@@ -49,7 +50,24 @@ class PubDetailController: UIViewController {
         
     }
     
+    @IBAction func directionsLink(_ sender: UIButton) {
+        openMapForPlace()
+    }
     
+    func openMapForPlace() {
+
+        let regionDistance:CLLocationDistance = 1000
+        let coordinates = pub.location
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = pub.name
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -153,7 +171,6 @@ extension PubDetailController: UICollectionViewDataSource, UICollectionViewDeleg
         } else {
             cell?.facilityText.text = pub.venueCosts
         }
-        
         
         return cell!
         
