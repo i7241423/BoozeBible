@@ -113,6 +113,9 @@ extension ViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             
             annotationView.image = UIImage(named: "map_pin")
+            
+            
+            annotationView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
        
             let imageView = UIImageView(image: UIImage())
             imageView.imageFromServerURL(urlString: annotation.pub.imageURL)

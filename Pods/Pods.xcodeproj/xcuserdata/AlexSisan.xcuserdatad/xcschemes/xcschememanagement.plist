@@ -8,20 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>FBAnnotationClustering.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-Location.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4276FDBF1ED4BA2B00914A8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4276FDC71ED4BA2B00914A8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5169C587A8612AC490E7FBE355DD8A56</key>
 		<dict>
 			<key>primary</key>
