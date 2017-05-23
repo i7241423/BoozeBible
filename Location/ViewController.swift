@@ -106,13 +106,13 @@ extension ViewController: MKMapViewDelegate {
             
             
             
-            let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+            let annotationView = MKAnnotationView(annotation:annotation, reuseIdentifier:identifier)
             
             
             annotationView.isEnabled = true
             annotationView.canShowCallout = true
             
-            //annotationView.image = UIImage(named: "mappin")
+            annotationView.image = UIImage(named: "map_pin")
        
             let imageView = UIImageView(image: UIImage())
             imageView.imageFromServerURL(urlString: annotation.pub.imageURL)
@@ -125,9 +125,13 @@ extension ViewController: MKMapViewDelegate {
             
             return annotationView
             
+            
+            
         }
         
         return nil
+        
+    
         
     }
     
