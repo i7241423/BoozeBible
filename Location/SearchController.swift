@@ -14,13 +14,13 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     
     var images = ["cost-search","speciality-search","ambiance-search","food-search","garden-search","activity-search"," ","music-search"]
     
-    var prices = ["Please select one","£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
-    var speciality = ["Please select one","None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
-    var ambiance = ["Please select one","Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
-    var food = ["Please select one","No", "Yes", "Snacks"]
-    var beerGarden = ["Please select one","Beer Garden", "Smoking Area", "None"]
-    var activities = ["Please select one","Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
-    var music = ["Please select one","Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
+    var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
+    var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
+    var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
+    var food = ["No", "Yes", "Snacks"]
+    var beerGarden = ["Beer Garden", "Smoking Area", "None"]
+    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
+    var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
     var name = ["cost", "speciality", "style", "food", "garden", "activity", "none", "music"]
 
@@ -131,7 +131,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     
 
     @IBAction func searchButton(_ sender: UIButton) {
-        searchRequest(value: pickerView.selectedRow(inComponent: 0))
+        searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
     }
     
 }
