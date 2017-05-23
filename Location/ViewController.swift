@@ -13,6 +13,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func add(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "addPub")
+        
+        addChildViewController(vc)
+        view.addSubview(vc.view)
+        vc.didMove(toParentViewController: self)
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

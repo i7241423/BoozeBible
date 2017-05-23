@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var userLocation: CLLocation?
     
@@ -21,10 +21,6 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         print("button")
         
-        guard let userLocation = userLocation else {
-            //dont have user location...
-            return
-        }
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -33,15 +29,6 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         let params: [String: String] = [
             "name": nameView.text!,
-            "sub": subNameView.text!,
-            "description": textView.text!,
-            "addr": addrView.text!,
-            "postcode": postCodeView.text!,
-            "telephone": phoneView.text!,
-            "website": siteView.text!,
-            "lat": "\(userLocation.coordinate.latitude)",
-            "lng": "\(userLocation.coordinate.longitude)",
-            //"imgURL": pickedImaged.image!
         ]
     
         let imageData = UIImageJPEGRepresentation(image, 0)!
@@ -87,21 +74,9 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
     @IBOutlet weak var pickedImaged: UIImageView!
     
-    // Access the camera on your phone
-    
-    @IBAction func camerButtonAction(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-    }
     
     // Access the photo library on your phone
     
-    @IBAction func photLibraryAction(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -109,16 +84,6 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
-    }
-    
-    // Save the photo into the app
-    
-    @IBAction func saveAction(_ sender: UIButton) {
-        let imageData = UIImageJPEGRepresentation(pickedImaged.image!, 0.6)
-        let compressedJPEGImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
-        saveNotice()
-        
     }
     
     func saveNotice(){
@@ -140,19 +105,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     }
     
     
-    @IBOutlet weak var textView: UITextView!
 
     @IBOutlet weak var nameView: UITextField!
     
     @IBOutlet weak var subNameView: UITextField!
-    
-    @IBOutlet weak var addrView: UITextField!
-    
-    @IBOutlet weak var postCodeView: UITextField!
-    
-    @IBOutlet weak var phoneView: UITextField!
-    
-    @IBOutlet weak var siteView: UITextField!
     
     
     //View did load function
@@ -163,41 +119,8 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         nameView.delegate = self
         subNameView.delegate = self
-        textView.delegate = self
-        addrView.delegate = self
-        phoneView.delegate = self
-        siteView.delegate = self
-    
-        //Add new venue DESCRIPTION styling
-        
-        textView.text = "'A modern Wetherspoon's pub with basic decor, dark patterned carpets, real ales, ciders and pub grub'"
-        textView.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0)
-        textView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
-        textView.layer.borderWidth = 1.0
-        textView.layer.cornerRadius = 5
-   
         
 
     }
-    
-   
-    //When editing decription changes colour to black
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0){
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    //When finishing editing decription but didnt input anything chnages colour back to grey
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "'A modern Wetherspoon's pub with basic decor, dark patterned carpets, real ales, ciders and pub grub'"
-            textView.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0)
-        }
-    }
-    
 }
     
