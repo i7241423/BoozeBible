@@ -6,12 +6,17 @@ import CoreLocation
 class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var userLocation: CLLocation?
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo: [String : Any]) {
-        guard let image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        pickedImaged.image = image
-        self.dismiss(animated: true, completion: nil)
+
+    @IBAction func dismiss(_ sender: Any) {
+        
+        self.willMove(toParentViewController: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
+        
+        dismiss(animated: true, completion: nil)
+        
     }
+
     
     @IBAction func demo(_ sender: Any) {
         
@@ -21,6 +26,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         print("button")
         
+//        guard let userLocation = userLocation else {
+//            //dont have user location...
+//            return
+//        }
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -29,6 +38,15 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         let params: [String: String] = [
             "name": nameView.text!,
+            "sub": " ",
+            "description": " ",
+            "addr": " ",
+            "postcode": postcodeView.text!,
+            "telephone": " ",
+            "website": " ",
+            "hours": " ",
+            "lat": "\(0)",
+            "lng": "\(0)",
         ]
     
         let imageData = UIImageJPEGRepresentation(image, 0)!
@@ -45,17 +63,28 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             switch encodingResult {
             case .success(let upload, _, _):
                 upload.responseJSON { response in
-                    self.submitNotice()
+                   // self.submitNotice()
+                    
+                    self.willMove(toParentViewController: nil)
+                    self.view.removeFromSuperview()
+                    self.removeFromParentViewController()
+                    
+                    
                     debugPrint(response)
+             
                 }
             case .failure(let encodingError):
                 print("Fail")
-                self.submitNotice(self.title = "Unsucessfully Added Venue!")
+               // self.submitNotice(self.title = "Unsucessfully Added Venue!")
                 print(encodingError)
             }
         })
+        dismiss(animated: true, completion: nil)
     }
     
+//    func hideContentController(content: UIViewController) {
+//        
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -77,6 +106,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     
     // Access the photo library on your phone
     
+    @IBAction func photoLibraryAction(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -94,8 +124,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
     }
     
     // Display image selected from camera or photo library
+    
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!){
+        
         pickedImaged.image = image
         self.dismiss(animated: true, completion: nil);
     }
@@ -108,8 +140,9 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
 
     @IBOutlet weak var nameView: UITextField!
     
-    @IBOutlet weak var subNameView: UITextField!
     
+    @IBOutlet weak var postcodeView: UITextField!
+
     
     //View did load function
     
@@ -118,9 +151,10 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
 
         
         nameView.delegate = self
-        subNameView.delegate = self
+        postcodeView.delegate = self
         
 
     }
+ 
 }
     
