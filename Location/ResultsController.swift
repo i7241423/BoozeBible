@@ -51,6 +51,8 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let pub = pubs[indexPath.row]
         
+       // cell?.contentView.layer =
+        
         cell?.titleLabel.text = pub.name
         
         cell?.venueImage.imageFromServerURL(urlString: pub.imageURL)

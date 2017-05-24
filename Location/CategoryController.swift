@@ -33,7 +33,7 @@ class CategoryController: UIViewController  {
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
-    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
+    var activities = ["Dart Board", "Snooker/Pool Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
     @IBAction func send(_ sender: Any) {
@@ -47,7 +47,7 @@ class CategoryController: UIViewController  {
         ]
         
         let params: [String: Any] = [
-            "venue_id": 66, // this needs to change
+            "venue_id": pub.venueID, // this needs to change
             paramName: pickerView.selectedRow(inComponent: 0) + 1
         ]
         

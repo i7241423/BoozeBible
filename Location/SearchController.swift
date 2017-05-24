@@ -19,7 +19,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
-    var activities = ["Dart Board", "Snooker Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports"]
+    var activities = ["Dart Board", "Snooker/Pool Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
     var name = ["cost", "speciality", "style", "food", "garden", "activity", "none", "music"]
