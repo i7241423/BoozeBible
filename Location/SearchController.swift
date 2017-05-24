@@ -19,7 +19,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
-    var activities = ["Dart Board", "Snooker/Pool Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands"]
+    var activities = ["Dart Board", "Snooker/Pool Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands", "None"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
     var name = ["cost", "speciality", "style", "food", "garden", "activity", "none", "music"]
@@ -71,11 +71,22 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         pickerView.dataSource = self
         pickerView.delegate = self
         
+        pickerView.alpha = 0
+        
         
         let logo = UIImage(named: "logo-top")
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
 
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(true)
+        
+        pickerView.alpha = 0
+        SearchButton.alpha = 0
         
     }
    
@@ -85,6 +96,9 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "searchResult" {
+            
+            pickerView.alpha = 0
+            
             let vc = segue.destination as! ResultsController
             vc.pubs = pubs
         }
@@ -102,8 +116,16 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         return cell! 
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
         selectedRow = indexPath.row
+        
+        pickerView.alpha = 1
+        SearchButton.alpha = 1
+        
         
         if indexPath.row == 0 {
             pickerSource = prices
@@ -133,8 +155,13 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     @IBAction func searchButton(_ sender: UIButton) {
         searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
     }
+ 
     
 }
+
+
+
+
 
 extension SearchController: UIPickerViewDelegate, UIPickerViewDataSource {
     

@@ -119,7 +119,7 @@ class PubDetailController: UIViewController {
         websiteButton.setTitle(pub.name + "'s Website", for: .normal)
         
       
-        collectionView.reloadData()
+        self.collectionView.reloadData()
         
     
     }
@@ -156,7 +156,6 @@ extension PubDetailController: UICollectionViewDataSource, UICollectionViewDeleg
         } else {
             cell?.facilityText.text = pub.venueCosts
         }
-        
         return cell!
         
         //    cell.textLabel?.text = pub.name
