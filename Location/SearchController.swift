@@ -12,7 +12,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var selectedRow: Int!
 
     
-    var images = ["cost-search","speciality-search","ambiance-search","food-search","garden-search","activity-search"," ","music-search"]
+    var images = ["pint","speciality","ambiance","food","garden","activities","blank1","music","blank"]
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
@@ -25,6 +25,45 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
     var name = ["cost", "speciality", "style", "food", "garden", "activity", "none", "music"]
 
     @IBOutlet weak var SearchButton: UIButton!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var searchCollectionView: UICollectionView!
+    
+
+    @IBAction func searchButton(_ sender: UIButton) {
+        searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
+    }
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.searchCollectionView.delegate = self
+        self.searchCollectionView.dataSource = self
+        
+        pickerSource = prices
+        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+        pickerView.alpha = 0
+        
+        
+        let logo = UIImage(named: "logo-top")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+        
+        pickerView.setValue(UIColor(red: 107/255, green: 191/255, blue: 159/255, alpha: 1.0), forKeyPath: "textColor")
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(true)
+        
+        pickerView.alpha = 0
+        //SearchButton.alpha = 0
+    
+    }
     
     func searchRequest(value: Int) {
         
@@ -33,7 +72,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
             "Accept": "application/json",
             "ContentType": "application/json"
         ]
-     
+        
         
         Alamofire.request("http://46.101.42.98/api/venues/search?\(name[selectedRow])=\(value)", method: .get, parameters: nil, headers: headers).response { [unowned self] response in
             URLCache.shared.removeAllCachedResponses()
@@ -56,42 +95,37 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         }
     }
     
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var searchCollectionView: UICollectionView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.searchCollectionView.delegate = self
-        self.searchCollectionView.dataSource = self
-        
-        pickerSource = prices
-        
-        pickerView.dataSource = self
-        pickerView.delegate = self
+    func forPickerAnimation() {
         
         pickerView.alpha = 0
+        //SearchButton.alpha = 0
         
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseIn, animations: {
+            
+            self.pickerView.alpha = 1
+            //self.SearchButton.alpha = 1
+            
+            
+        }, completion: nil)
         
-        let logo = UIImage(named: "logo-top")
-        let imageView = UIImageView(image: logo)
-        self.navigationItem.titleView = imageView
-
+    }
+    func dismissPicker() {
+        
+        pickerView.alpha = 1
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseIn, animations: {
+            
+            self.pickerView.alpha = 0
+            
+            
+        }, completion: nil)
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(true)
-        
-        pickerView.alpha = 0
-        SearchButton.alpha = 0
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        dismissPicker()
     }
-   
     
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -113,9 +147,8 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? SearchCollectionViewCell
         cell?.imageView.image = UIImage(named: images[indexPath.row])
-        return cell! 
+        return cell!
     }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -123,8 +156,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         selectedRow = indexPath.row
         
-        pickerView.alpha = 1
-        SearchButton.alpha = 1
+        forPickerAnimation()
         
         
         if indexPath.row == 0 {
@@ -142,7 +174,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         } else if indexPath.row == 7 {
             pickerSource = music
         } else {
-            
+             pickerView.alpha = 0
         }
         pickerView.reloadAllComponents()
         
@@ -150,17 +182,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         
     }
-    
-
-    @IBAction func searchButton(_ sender: UIButton) {
-        searchRequest(value: pickerView.selectedRow(inComponent: 0) + 1)
-    }
- 
-    
 }
-
-
-
 
 
 extension SearchController: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -11,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     UITabBar.appearance().tintColor = .black
     
+    UINavigationBar.appearance().tintColor = .black
+    
     return true
   }
 
