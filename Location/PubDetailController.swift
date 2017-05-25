@@ -11,14 +11,15 @@ class PubDetailController: UIViewController {
     
     var name = ["Cost of a Pint", "Speciality", "Ambiance", "Food", "Outside area", "Activity", "Music"]
     
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var categoryView: UIView!
+    
+    
     @IBOutlet weak var venueTitle: UILabel!
-    @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var postcode: UILabel!
-    @IBOutlet weak var telephoneButton: UIButton!
-    @IBOutlet weak var websiteButton: UIButton!
 
     //collection view
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,44 +35,44 @@ class PubDetailController: UIViewController {
         performSegue(withIdentifier: "pub", sender: pub)
     }
     
-    @IBAction func websiteLink(_ sender: UIButton) {
-    
-        let url = URL(string: "http://" + pub.website)!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-
-       
-    }
-    @IBAction func telephoneLink(_ sender: Any) {
-       
-        let url = "telprompt://\(pub.telephone.replacingOccurrences(of: " ", with: ""))"
-        
-        guard let number = URL(string: url ) else { return }
-        UIApplication.shared.open(number, options: [:], completionHandler: nil)
-        
-    }
-    
-    @IBAction func directionsLink(_ sender: UIButton) {
-        openMapForPlace()
-    }
-    
-    func openMapForPlace() {
-
-        let regionDistance:CLLocationDistance = 1000
-        let coordinates = pub.location
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = pub.name
-        mapItem.openInMaps(launchOptions: options)
-    }
+//    @IBAction func websiteLink(_ sender: UIButton) {
+//    
+//        let url = URL(string: "http://" + pub.website)!
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
+//
+//       
+//    }
+//    @IBAction func telephoneLink(_ sender: Any) {
+//       
+//        let url = "telprompt://\(pub.telephone.replacingOccurrences(of: " ", with: ""))"
+//        
+//        guard let number = URL(string: url ) else { return }
+//        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+//        
+//    }
+//    
+//    @IBAction func directionsLink(_ sender: UIButton) {
+//        openMapForPlace()
+//    }
+//    
+//    func openMapForPlace() {
+//
+//        let regionDistance:CLLocationDistance = 1000
+//        let coordinates = pub.location
+//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+//        ]
+//        let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
+//        let mapItem = MKMapItem(placemark: placemark)
+//        mapItem.name = pub.name
+//        mapItem.openInMaps(launchOptions: options)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -93,8 +94,20 @@ class PubDetailController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-      
-       
+        
+        infoView.layer.shadowColor = UIColor.black.cgColor
+        infoView.layer.shadowOpacity = 1
+        infoView.layer.shadowOffset = CGSize.zero
+        infoView.layer.shadowRadius = 10
+        
+        categoryView.layer.shadowColor = UIColor.black.cgColor
+        categoryView.layer.shadowOpacity = 1
+        categoryView.layer.shadowOffset = CGSize.zero
+        categoryView.layer.shadowRadius = 10
+        
+        
+        
+        
         //Venue image
         imageView.imageFromServerURL(urlString: pub.imageURL)
         
@@ -116,18 +129,13 @@ class PubDetailController: UIViewController {
         
         //Venue postcode
         postcode.text = pub.postcode!
-      
-        //Venue Description
-        hours.text = pub.hours!
-        hours.numberOfLines = 0
-        hours.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         
-        //Venue Telephone
-        telephoneButton.setTitle(pub.telephone, for: .normal)
-        
-        //Venue Website
-        websiteButton.setTitle(pub.name + "'s Website", for: .normal)
+//        //Venue Telephone
+//        telephoneButton.setTitle(pub.telephone, for: .normal)
+//        
+//        //Venue Website
+//        websiteButton.setTitle(pub.name + "'s Website", for: .normal)
         
       
         self.collectionView.reloadData()

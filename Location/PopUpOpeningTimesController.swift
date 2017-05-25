@@ -10,7 +10,7 @@ class PopUpOpeningTimesController: UIViewController{
     
     @IBOutlet weak var openingTimesLabel: UILabel!
     
-    @IBAction func close(_ sender: Any) {
+    @IBAction func close(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
