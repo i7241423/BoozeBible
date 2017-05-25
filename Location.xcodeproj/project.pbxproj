@@ -26,6 +26,7 @@
 		4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */; };
 		4276FDB81ED453F800914A8C /* Open Sans in Resources */ = {isa = PBXBuildFile; fileRef = 4276FDB71ED453F800914A8C /* Open Sans */; };
 		4276FDBA1ED458A000914A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4276FDB91ED458A000914A8C /* Main.storyboard */; };
+		428759851ED722A100E5A670 /* PopUpOpeningTimesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428759841ED722A100E5A670 /* PopUpOpeningTimesController.swift */; };
 		42EE478D1EBCB2FF00ED3A99 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE478C1EBCB2FF00ED3A99 /* UIImageView+Extension.swift */; };
 		42F7B51D1E6ED8FB00F4CA8C /* Speciality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7B51C1E6ED8FB00F4CA8C /* Speciality.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		4275D4561E66F04C00EBB8CF /* pickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerTableViewCell.swift; sourceTree = "<group>"; };
 		4276FDB71ED453F800914A8C /* Open Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Open Sans"; sourceTree = "<group>"; };
 		4276FDB91ED458A000914A8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		428759841ED722A100E5A670 /* PopUpOpeningTimesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpOpeningTimesController.swift; sourceTree = "<group>"; };
 		42EE478C1EBCB2FF00ED3A99 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		42F7B51C1E6ED8FB00F4CA8C /* Speciality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speciality.swift; sourceTree = "<group>"; };
 		5BA05660DC68655C82C25F18 /* Pods-Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Location/Pods-Location.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				425D11F21E5C70E30045B44F /* CategoryController.swift */,
 				274D07EB1DD0D01A002D86C9 /* Location.gpx */,
 				4276FDB91ED458A000914A8C /* Main.storyboard */,
+				428759841ED722A100E5A670 /* PopUpOpeningTimesController.swift */,
 				4243D41F1ECDC7E600EE26B1 /* SearchCollectionViewCell.swift */,
 				42711B311ED35CD900D4E5B0 /* PubDetailCollectionViewCell.swift */,
 				274D07DF1DD0CAAE002D86C9 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 			files = (
 				4275D4571E66F04C00EBB8CF /* pickerTableViewCell.swift in Sources */,
 				424831681DF6DDCA0052D31E /* Pub.swift in Sources */,
+				428759851ED722A100E5A670 /* PopUpOpeningTimesController.swift in Sources */,
 				42F7B51D1E6ED8FB00F4CA8C /* Speciality.swift in Sources */,
 				42711B321ED35CD900D4E5B0 /* PubDetailCollectionViewCell.swift in Sources */,
 				421CEC121EC47C95005C034D /* SearchController.swift in Sources */,

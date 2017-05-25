@@ -23,10 +23,15 @@ class PubDetailController: UIViewController {
     //collection view
     @IBOutlet weak var collectionView: UICollectionView!
     
+
+    @IBAction func openTimes(_ sender: Any) {
+        let pub = self.pub
+        performSegue(withIdentifier: "openTimes", sender: pub)
+        
+    }
     @IBAction func rate(_ sender: Any) {
         let pub = self.pub
-        performSegue(withIdentifier: "rate", sender: pub)
-
+        performSegue(withIdentifier: "pub", sender: pub)
     }
     
     @IBAction func websiteLink(_ sender: UIButton) {
@@ -74,6 +79,12 @@ class PubDetailController: UIViewController {
             let vc = segue.destination as! CategoryController
             vc.pub = pub
         }
+        
+        if segue.identifier == "openTimes" {
+            let vc = segue.destination as! PopUpOpeningTimesController
+            vc.pub = pub
+        }
+
     }
     
     override func viewDidLoad() {

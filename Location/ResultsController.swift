@@ -54,6 +54,7 @@ class ResultsController: UIViewController, UITableViewDelegate, UITableViewDataS
        // cell?.contentView.layer =
         
         cell?.titleLabel.text = pub.name
+        cell?.subTitleLabel.text = pub.sub
         
         cell?.venueImage.imageFromServerURL(urlString: pub.imageURL)
 

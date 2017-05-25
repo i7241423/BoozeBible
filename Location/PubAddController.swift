@@ -26,15 +26,6 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
         
         print("button")
         
-//        guard let userLocation = userLocation else {
-//            //dont have user location...
-//            return
-//        }
-        
-        let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "ContentType": "application/json"
-        ]
         
         let params: [String: String] = [
             "name": nameView.text!,
