@@ -33,7 +33,7 @@ class CategoryController: UIViewController  {
     var ambiance = ["Traditional", "Modern", "Funky", "Student", "Cheap", "Sports"]
     var food = ["No", "Yes", "Snacks"]
     var beerGarden = ["Beer Garden", "Smoking Area", "None"]
-    var activities = ["Dart Board", "Snooker/Pool Table", "Ping-Pong Table", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands", "None"]
+    var activities = ["Dart Board", "Snooker/Pool", "Ping-Pong", "Comedy Nights", "Quiz Nights", "Sky Sports", "Live Bands", "None"]
     var music = ["Rap", "Rock", "Pop", "Garage", "Grime", "Varied", "House", "Drum and Bass"]
 
     @IBAction func send(_ sender: Any) {
