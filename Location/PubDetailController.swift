@@ -96,14 +96,14 @@ class PubDetailController: UIViewController {
         self.collectionView.dataSource = self
         
         infoView.layer.shadowColor = UIColor.black.cgColor
-        infoView.layer.shadowOpacity = 1
+        infoView.layer.shadowOpacity = 0.3
         infoView.layer.shadowOffset = CGSize.zero
-        infoView.layer.shadowRadius = 10
+        infoView.layer.shadowRadius = 7
         
         categoryView.layer.shadowColor = UIColor.black.cgColor
-        categoryView.layer.shadowOpacity = 1
+        categoryView.layer.shadowOpacity = 0.3
         categoryView.layer.shadowOffset = CGSize.zero
-        categoryView.layer.shadowRadius = 10
+        categoryView.layer.shadowRadius = 7
         
         
         
