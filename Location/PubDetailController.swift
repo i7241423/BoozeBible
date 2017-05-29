@@ -14,6 +14,8 @@ class PubDetailController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var categoryView: UIView!
     
+    @IBOutlet weak var telephoneButton: UIButton!
+    @IBOutlet weak var websiteButton: UIButton!
     
     @IBOutlet weak var venueTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -35,44 +37,44 @@ class PubDetailController: UIViewController {
         performSegue(withIdentifier: "pub", sender: pub)
     }
     
-//    @IBAction func websiteLink(_ sender: UIButton) {
-//    
-//        let url = URL(string: "http://" + pub.website)!
-//        if #available(iOS 10.0, *) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.openURL(url)
-//        }
-//
-//       
-//    }
-//    @IBAction func telephoneLink(_ sender: Any) {
-//       
-//        let url = "telprompt://\(pub.telephone.replacingOccurrences(of: " ", with: ""))"
-//        
-//        guard let number = URL(string: url ) else { return }
-//        UIApplication.shared.open(number, options: [:], completionHandler: nil)
-//        
-//    }
-//    
-//    @IBAction func directionsLink(_ sender: UIButton) {
-//        openMapForPlace()
-//    }
-//    
-//    func openMapForPlace() {
-//
-//        let regionDistance:CLLocationDistance = 1000
-//        let coordinates = pub.location
-//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
-//        let options = [
-//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-//        ]
-//        let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
-//        let mapItem = MKMapItem(placemark: placemark)
-//        mapItem.name = pub.name
-//        mapItem.openInMaps(launchOptions: options)
-//    }
+    @IBAction func websiteLink(_ sender: UIButton) {
+    
+        let url = URL(string: "http://" + pub.website)!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+
+       
+    }
+    @IBAction func telephoneLink(_ sender: UIButton) {
+       
+        let url = "telprompt://\(pub.telephone.replacingOccurrences(of: " ", with: ""))"
+        
+        guard let number = URL(string: url ) else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        
+    }
+    
+    @IBAction func directionsLink(_ sender: UIButton) {
+        openMapForPlace()
+    }
+    
+    func openMapForPlace() {
+
+        let regionDistance:CLLocationDistance = 1000
+        let coordinates = pub.location
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates!, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = pub.name
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
