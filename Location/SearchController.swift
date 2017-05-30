@@ -13,6 +13,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
 
     
     var images = ["pint","speciality","ambiance","food","garden","activities","blank1","music","blank"]
+    var imagesSelect = ["pint-1","speciality-1","ambiance-1","food-1","garden-1","activities-1","blank1","music-1","blank"]
     
     var prices = ["£1 - £2.50","£2.50 - £4.00","£4.00 - £5.50", "£5.50+"]
     var speciality = ["None", "Rum", "Tequila","Gin", "Whisky", "Brandy","Ale's", "Cocktails", "Vodka","Wine"]
@@ -147,6 +148,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? SearchCollectionViewCell
         cell?.imageView.image = UIImage(named: images[indexPath.row])
+        
         return cell!
     }
     
@@ -155,6 +157,7 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         
         
         selectedRow = indexPath.row
+        
         
         forPickerAnimation()
         
@@ -178,9 +181,15 @@ class SearchController: UIViewController, UICollectionViewDelegate, UICollection
         }
         pickerView.reloadAllComponents()
         
-        print ("selected row is" , indexPath.row)
         
-        
+        let cell = collectionView.cellForItem(at: indexPath) as! SearchCollectionViewCell
+        cell.imageView.image = UIImage(named: imagesSelect[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    
+        let cell = collectionView.cellForItem(at: indexPath) as! SearchCollectionViewCell
+        cell.imageView.image = UIImage(named: images[indexPath.row])
     }
 }
 

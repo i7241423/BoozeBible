@@ -70,7 +70,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
                 print(encodingError)
             }
         })
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
     }
     
 //    func hideContentController(content: UIViewController) {
