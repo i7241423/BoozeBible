@@ -2,6 +2,7 @@ import UIKit
 import MapKit
 import Alamofire
 import SwiftyJSON
+import RevealingSplashView
 
 
 class ViewController: UIViewController {
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let logo = UIImage(named: "logo-top")
         let imageView = UIImageView(image: logo)

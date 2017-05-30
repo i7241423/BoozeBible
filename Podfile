@@ -7,5 +7,6 @@ target 'Location' do
 
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod ‘RevealingSplashView’
 
 end

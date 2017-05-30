@@ -8,52 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>FBAnnotationClustering.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-Location.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>RevealingSplashView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4276FDBF1ED4BA2B00914A8C</key>
+		<key>202390004A3A477B1CA3956E3CEC5BEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4276FDC71ED4BA2B00914A8C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5169C587A8612AC490E7FBE355DD8A56</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6360F044818B13A9A7705A3B361C3AA1</key>
+		<key>590BA8066B9FBBC736BF32410F0268B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A538BBC256095D8CFE296003E3E8B84C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

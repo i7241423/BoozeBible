@@ -116,7 +116,7 @@ class PubDetailController: UIViewController {
         //Title Venue Name
         venueTitle.text = pub.name!
        
-        //Venue Name
+        // Navigation Venue Name
         navigationItem.title = pub.name!
         
         //Venue Description

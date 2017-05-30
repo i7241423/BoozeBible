@@ -61,7 +61,7 @@ class CategoryController: UIViewController  {
     
     func submitNotice(){
         
-        let alertController = UIAlertController(title: "Yippeeee", message: "The rating was successfully submitted.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Yippee", message: "The rating was successfully submitted.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
@@ -78,7 +78,49 @@ class CategoryController: UIViewController  {
         tableView.delegate = self
         tableView.dataSource = self
         
+        pickerView.alpha = 0
+        pickerView.setValue(UIColor(red: 107/255, green: 191/255, blue: 159/255, alpha: 1.0), forKeyPath: "textColor")
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(true)
+        
+        pickerView.alpha = 0
+        //SearchButton.alpha = 0
+        
+    }
+    
+    func forPickerAnimation() {
+    
+    pickerView.alpha = 0
+    //SearchButton.alpha = 0
+    
+    UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseIn, animations: {
+    
+    self.pickerView.alpha = 1
+    //self.SearchButton.alpha = 1
+    
+    
+    }, completion: nil)
+    
+    }
+    func dismissPicker() {
+        
+        pickerView.alpha = 1
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseIn, animations: {
+            
+            self.pickerView.alpha = 0
+            
+            
+        }, completion: nil)
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        dismissPicker()
     }
 }
 
@@ -93,30 +135,33 @@ extension CategoryController: UITableViewDataSource, UITableViewDelegate {
         
         cell?.rateImageView.image = UIImage(named: images[indexPath.row])
         
-    
+        
         
         if indexPath.row == 0 {
-            cell?.rateTitleLabel.text = "Cost of pint? (Cheapest)"
+            cell?.rateTitleLabel.text = "Cost of a pint (Cheapest)"
         } else if indexPath.row == 1 {
-            cell?.rateTitleLabel.text = "Drinks speciality?"
+            cell?.rateTitleLabel.text = "Speciality"
         } else if indexPath.row == 2 {
-            cell?.rateTitleLabel.text = "Ambiance?"
+            cell?.rateTitleLabel.text = "Ambiance"
         } else if indexPath.row == 3 {
-            cell?.rateTitleLabel.text = "Food?"
+            cell?.rateTitleLabel.text = "Food"
         } else if indexPath.row == 4 {
-            cell?.rateTitleLabel.text = "Beer garden or smoking area?"
+            cell?.rateTitleLabel.text = "Outside Area"
         } else if indexPath.row == 5 {
-            cell?.rateTitleLabel.text = "Additional activities?"
+            cell?.rateTitleLabel.text = "Additional Activities"
         } else if indexPath.row == 6 {
-           cell?.rateTitleLabel.text = "Music?"
+           cell?.rateTitleLabel.text = "Music"
         } else {
-            cell?.rateTitleLabel.text = "Cost of pint? (Cheapest)"
+             pickerView.alpha = 0
         }
         return cell!
         //cell.textLabel?.text
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        forPickerAnimation()
+        
         if indexPath.row == 0 {
             pickerSource = prices
         } else if indexPath.row == 1 {
