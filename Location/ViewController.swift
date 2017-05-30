@@ -7,6 +7,7 @@ import RevealingSplashView
 
 class ViewController: UIViewController {
     
+    
     let locationManager = CLLocationManager()
     var pubs = [Pub]()
     var specialities = [Speciality]()

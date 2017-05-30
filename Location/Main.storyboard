@@ -184,7 +184,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHw-HB-7oj">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Joy-RI-imH">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Joy-RI-imH">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="add:" destination="BYZ-38-t0r" id="Ox2-K3-upA"/>
@@ -375,11 +375,11 @@
                         <viewControllerLayoutGuide type="bottom" id="945-tY-iqb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w1o-tR-DIe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="720" verticalCompressionResistancePriority="720" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-pw-iJd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-1L-bFy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
@@ -754,18 +754,18 @@
                         <viewControllerLayoutGuide type="bottom" id="QMM-89-HcA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RQf-Bd-nRv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-Ip-RYc">
-                                <rect key="frame" x="0.0" y="442" width="375" height="181"/>
+                                <rect key="frame" x="0.0" y="378" width="375" height="181"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="Dz9-aj-BlA"/>
                                 </constraints>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GLq-KT-qxi">
-                                <rect key="frame" x="0.0" y="72" width="375" height="329"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="329"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -808,7 +808,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBP-Nn-TH0">
-                                <rect key="frame" x="0.0" y="401" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="337" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.49803921569999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FQ8-iT-hcA"/>
@@ -1014,6 +1014,6 @@
         <image name="x" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ukh-AL-kL4"/>
+        <segue reference="ed9-H4-0Nz"/>
     </inferredMetricsTieBreakers>
 </document>
