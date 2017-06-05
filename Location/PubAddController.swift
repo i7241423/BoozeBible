@@ -54,13 +54,13 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             switch encodingResult {
             case .success(let upload, _, _):
                 upload.responseJSON { response in
-                   // self.submitNotice()
+                   //self.submitNotice()
                     
                     self.willMove(toParentViewController: nil)
                     self.view.removeFromSuperview()
                     self.removeFromParentViewController()
                     
-                    
+                   
                     debugPrint(response)
              
                 }
@@ -71,6 +71,7 @@ class PubAddController: UIViewController, UITextViewDelegate, UITextFieldDelegat
             }
         })
         //dismiss(animated: true, completion: nil)
+         self.submitNotice()
     }
     
 //    func hideContentController(content: UIViewController) {
