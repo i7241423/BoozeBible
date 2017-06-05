@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.3.0)
+  - IQKeyboardManagerSwift (4.0.8)
   - RevealingSplashView (0.1.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
+  - IQKeyboardManagerSwift
   - RevealingSplashView
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   RevealingSplashView: 501dd03d975ba2c4165dd463ea1c7c407fb9d13e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8bfc13dd6e1d7c6d6cef39d22b11fa1f04fa9f31
+PODFILE CHECKSUM: 36d99caeb1a390ee9b38c38943ad324402afa64b
 
 COCOAPODS: 1.1.1
