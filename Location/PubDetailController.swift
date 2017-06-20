@@ -89,9 +89,11 @@ class PubDetailController: UIViewController {
         }
 
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         self.collectionView.delegate = self
@@ -146,6 +148,8 @@ class PubDetailController: UIViewController {
     }
     
 
+    
+    
 }
 
 
@@ -160,6 +164,7 @@ extension PubDetailController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PubDetailCollectionViewCell
         cell?.facilityImage.image = UIImage(named: images[indexPath.row])
         cell?.facilityLabel.text = name[indexPath.row]
+        
         if indexPath.row == 0 {
             cell?.facilityText.text = pub.venueCosts
         } else if indexPath.row == 1 {
@@ -177,6 +182,7 @@ extension PubDetailController: UICollectionViewDataSource, UICollectionViewDeleg
         } else {
             cell?.facilityText.text = pub.venueCosts
         }
+        
         return cell!
         
         //    cell.textLabel?.text = pub.name

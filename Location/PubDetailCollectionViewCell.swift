@@ -14,4 +14,5 @@ class PubDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var facilityLabel: UILabel!
     
     @IBOutlet weak var facilityImage: UIImageView!
+    
 }
